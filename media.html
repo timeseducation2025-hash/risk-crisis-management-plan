@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>الميديا والتواصل — خطة منظومة إدارة المخاطر والأزمات | risk-crisis-management-plan</title>
+<script src="session.js" defer></script>
+<style>
+:root{--bg0:#06130d;--bg1:#0b241a;--green:#2ee08a;--gold:#e8c469;--ink:#eaf6ef;--muted:#8fb3a1;--red:#ff6b5e;--card:rgba(255,255,255,.05);}
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Cairo",Tahoma,Arial,sans-serif;}
+body{min-height:100vh;background:radial-gradient(1000px 600px at 80% 0%,#134a30 0%,transparent 60%),linear-gradient(160deg,var(--bg0),var(--bg1));color:var(--ink);padding:22px 16px 60px;}
+.wrap{max-width:1100px;margin:0 auto;}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px;padding:16px 20px;border-radius:18px;background:var(--card);border:1px solid rgba(46,224,138,.3);backdrop-filter:blur(10px);}
+header h1{font-size:19px;background:linear-gradient(90deg,var(--green),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;}
+header p{font-size:12.5px;color:var(--muted);margin-top:4px;}
+.panel{background:var(--card);border:1px solid rgba(46,224,138,.25);border-radius:18px;padding:20px;margin-bottom:18px;backdrop-filter:blur(10px);}
+.panel h2{color:var(--gold);font-size:16px;margin-bottom:12px;border-bottom:1px solid rgba(232,196,105,.3);padding-bottom:8px;}
+.btn{background:linear-gradient(135deg,var(--green),#0f9d58);border:none;color:#062015;font-weight:900;font-size:14px;padding:12px 22px;border-radius:11px;cursor:pointer;min-height:44px;text-decoration:none;display:inline-block;}
+.btn.blue{background:linear-gradient(135deg,#4db8ff,#1a6da8);color:#fff;}
+label{display:block;font-size:13px;color:var(--green);font-weight:bold;margin:10px 0 4px;}
+input{width:100%;padding:11px;border-radius:10px;border:1px solid rgba(46,224,138,.4);background:rgba(0,0,0,.35);color:var(--ink);font-size:14px;min-height:44px;direction:ltr;}
+input:focus{outline:2px solid var(--green);}
+/* شبكة الفيديوهات — تشغيل بالمرور (Hover-to-Play) مثل المواقع العالمية */
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px;}
+@media(max-width:800px){.vgrid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.vgrid{grid-template-columns:1fr;}}
+.vcard{position:relative;border:1px solid rgba(46,224,138,.3);border-radius:16px;overflow:hidden;background:#000;aspect-ratio:16/10;transition:.3s;}
+.vcard:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(0,0,0,.5);border-color:var(--green);}
+.vcard video,.vcard iframe{width:100%;height:100%;object-fit:cover;border:0;display:block;}
+.vcard .vcap{position:absolute;bottom:0;right:0;left:0;background:linear-gradient(transparent,rgba(4,14,9,.92));color:#fff;font-size:13px;padding:22px 12px 10px;pointer-events:none;}
+.vcard .badge{position:absolute;top:8px;right:8px;background:rgba(6,19,13,.8);border:1px solid var(--gold);color:var(--gold);font-size:11px;padding:3px 10px;border-radius:10px;}
+.vdel{position:absolute;top:8px;left:8px;z-index:3;background:rgba(179,38,30,.94);border:1px solid #ff6b5e;color:#fff;border-radius:8px;padding:7px 10px;cursor:pointer;font-weight:bold;}
+.hint{font-size:12px;color:var(--muted);margin-top:8px;text-align:center;}
+/* روابط المنصات */
+.social{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
+.social a{flex:1;min-width:130px;text-align:center;padding:14px 10px;border-radius:14px;text-decoration:none;font-weight:bold;font-size:14px;border:1px solid rgba(255,255,255,.15);transition:.25s;color:#fff;}
+.social a:hover{transform:translateY(-4px);}
+.s-yt{background:rgba(255,0,0,.18);border-color:#ff4d4d!important;}
+.s-tt{background:rgba(255,255,255,.08);}
+.s-ig{background:linear-gradient(45deg,rgba(255,180,0,.2),rgba(200,0,150,.25));}
+.s-fb{background:rgba(24,119,242,.2);border-color:#1877f2!important;}
+.s-wa{background:rgba(37,211,102,.15);border-color:#25D366!important;}
+.s-web{background:rgba(77,184,255,.15);border-color:#4db8ff!important;}
+/* الوضع الفاتح */
+[data-theme="light"]{--ink:#13271c;--muted:#4f6b5b;--green:#0e9e56;--gold:#8a6d1f;--card:#fff;}
+[data-theme="light"] body{background:radial-gradient(1000px 600px at 80% 0%,#d9efe3 0%,transparent 60%),linear-gradient(160deg,#f6faf7,#e9f2ec);}
+[data-theme="light"] .panel,[data-theme="light"] header{background:#fff;border-color:#cfe0d6;box-shadow:0 8px 24px rgba(27,94,59,.08);}
+[data-theme="light"] input{background:#fbfdfc;border-color:#9bb8a6;color:#13271c;}
+.themeBtn{border:1px solid rgba(46,224,138,.4);background:rgba(255,255,255,.05);color:var(--green);border-radius:10px;padding:9px 16px;cursor:pointer;font-weight:bold;font-size:13px;min-height:44px;}
+.toast{position:fixed;bottom:18px;right:18px;background:rgba(6,19,13,.95);border:1px solid var(--green);color:var(--green);padding:12px 20px;border-radius:12px;font-weight:bold;display:none;z-index:99;}
+
+@media(min-width:701px){
+  body{padding:16px 16px 40px;}
+  header{padding:12px 18px;} header h1{font-size:17px;}
+  .panel{padding:16px;margin-bottom:14px;} .panel h2{font-size:15px;}
+  input{padding:9px;min-height:40px;font-size:13.5px;}
+  .btn{padding:10px 20px;min-height:40px;font-size:13.5px;}
+  .vgrid{gap:12px;}
+}
+
+/* شريط الإعلانات المتحرك */
+.ticker{display:none;position:relative;overflow:hidden;background:linear-gradient(90deg,#1b5e3b,#0e9e56,#1b5e3b);color:#fff;
+  border-radius:12px;border:1px solid rgba(232,196,105,.5);margin-bottom:14px;min-height:42px;box-shadow:0 6px 18px rgba(27,94,59,.25);}
+.ticker.on{display:block;}
+.ticker .t-lbl{position:absolute;top:0;right:0;bottom:0;z-index:3;display:flex;align-items:center;padding:0 14px;font-weight:900;font-size:12.5px;
+  background:linear-gradient(90deg,#e8c469,#c9a24b);color:#062015;border-radius:0 12px 12px 0;}
+.ticker .t-track{display:flex;align-items:center;gap:48px;white-space:nowrap;padding:11px 0;animation:tick 26s linear infinite;will-change:transform;}
+.ticker:hover .t-track{animation-play-state:paused;}
+.ticker .t-item{font-size:13.5px;font-weight:bold;color:#fff;text-decoration:none;}
+.ticker .t-item::before{content:"📢 ";}
+.ticker a.t-item{text-decoration:underline;text-underline-offset:3px;}
+@keyframes tick{from{transform:translateX(-100%)}to{transform:translateX(100vw)}}
+[data-theme="light"] .ticker{background:linear-gradient(90deg,#0e7a48,#1b9e5f,#0e7a48);}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div><h1>🎬 مركز الميديا والتواصل</h1><p>خطة منظومة إدارة المخاطر والأزمات بالفروع والفرق الإرشادية • النتائج الواقعية تُعرض هنا داخل الموقع</p></div>
+  <div style="display:flex;gap:8px;">
+    <button class="themeBtn" onclick="toggleTheme()">🌙 داكن</button>
+    <a class="btn" href="app.html">📲 تطبيق الموبايل</a>
+    <a class="btn blue" href="index.html">← المنصة</a>
+  </div>
+</header>
+
+<div class="ticker" id="ticker"><span class="t-lbl">إعلانات</span><div class="t-track" id="tickerTrack"></div></div>
+
+<div class="panel">
+  <h2>🎥 فيديوهات الأنشطة — مرّر أو المس الفيديو ليعمل فورًا داخل الموقع</h2>
+  <div id="vlist"><p class="hint">سجّل الدخول من المنصة لعرض ورفع الفيديوهات</p></div>
+  <div style="text-align:center;margin-top:16px;" id="upBox" style="display:none;">
+    <label>⬆️ رفع فيديو جديد (MP4 — حتى 40 ميجا)</label>
+    <input type="text" id="vcap" placeholder="وصف الفيديو..." style="direction:rtl;margin-bottom:8px;">
+    <button class="btn" onclick="pickVideo()">📹 اختيار ورفع فيديو</button>
+    <p class="hint">الفيديو يُرفع على خادم الجمعية ويُعرض داخل الموقع فقط — مشاهداتك تُحسب لك هنا.</p>
+  </div>
+</div>
+
+<div class="panel">
+  <h2>📺 فيديوهات يوتيوب — تُعرض داخل الموقع دون الخروج منه</h2>
+  <div id="ytList" class="vgrid"></div>
+  <div id="storedYtList" class="vgrid"></div>
+  <p class="hint">أضف روابط فيديوهات قناة الجمعية من لوحة الإدارة (أسفل الصفحة للمالك/الأدمن).</p>
+</div>
+
+<div class="panel">
+  <h2>🔗 منصات الجمعية الرسمية</h2>
+  <div class="social" id="socialRow">
+    <a class="s-yt" id="l_yt" href="#" style="display:none;">▶️ يوتيوب</a>
+    <a class="s-tt" id="l_tt" href="#" style="display:none;">🎵 تيك توك</a>
+    <a class="s-ig" id="l_ig" href="#" style="display:none;">📸 إنستجرام</a>
+    <a class="s-fb" id="l_fb" href="#" style="display:none;">📘 فيسبوك</a>
+    <a class="s-wa" id="l_wa" href="#" style="display:none;">🟢 واتساب</a>
+    <a class="s-web" id="l_web" href="#" style="display:none;">🌐 الموقع الرسمي</a>
+  </div>
+</div>
+
+<div class="panel" id="socialAdmin" style="display:none;">
+  <h2>⚙️ إدارة روابط التواصل (المالك وأدمن الموقع)</h2>
+  <div class="row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;">
+    <div><label>يوتيوب (رابط القناة أو فيديو)</label><input id="f_yt" placeholder="https://youtube.com/@..."></div>
+    <div><label>تيك توك</label><input id="f_tt" placeholder="https://tiktok.com/@..."></div>
+    <div><label>إنستجرام</label><input id="f_ig" placeholder="https://instagram.com/..."></div>
+    <div><label>فيسبوك</label><input id="f_fb" placeholder="https://facebook.com/..."></div>
+    <div><label>واتساب (رابط قناة/جروب)</label><input id="f_wa" placeholder="https://wa.me/..."></div>
+    <div><label>الموقع الرسمي</label><input id="f_web" placeholder="https://..."></div>
+  </div>
+  <button class="btn" onclick="saveSocial()">💾 حفظ الروابط</button>
+</div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const API='api/index.php';
+const SESSION=JSON.parse(localStorage.getItem('egga_session')||'null');
+const isStaff=SESSION&&['owner','admin','supervisor'].includes(SESSION.role);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('rcmp_theme',t);
+  document.querySelectorAll('.themeBtn').forEach(b=>b.textContent=t==='light'?'🌙 داكن':'☀️ فاتح');}
+function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light');}
+applyTheme(localStorage.getItem('rcmp_theme')||'light');
+async function call(action,data={}){
+  const body={action,...data};if(SESSION&&SESSION.token)body.token=SESSION.token;
+  try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});return await r.json();}
+  catch(e){return{ok:false,msg:'تعذر الاتصال بالخادم'};}
+}
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2600);}
+/* استخراج معرّف يوتيوب من أي صيغة رابط */
+function ytId(u){try{const url=new URL(u,location.href),host=url.hostname.replace(/^www\./,'');if(host==='youtu.be')return url.pathname.split('/').filter(Boolean)[0]?.match(/^[\w-]{11}$/)?.[0]||null;if(!['youtube.com','m.youtube.com','youtube-nocookie.com'].includes(host))return null;const id=url.searchParams.get('v')||url.pathname.match(/\/(?:shorts|live|embed|v)\/([\w-]{11})(?:\/|$)/)?.[1];return id&&/^[\w-]{11}$/.test(id)?id:null;}catch{return null;}}
+
+async function loadSocial(){
+  const r=await call('social_get');
+  const s=r.ok?r.social:{};
+  const map={youtube:['l_yt','f_yt'],tiktok:['l_tt','f_tt'],instagram:['l_ig','f_ig'],facebook:['l_fb','f_fb'],whatsapp:['l_wa','f_wa'],website:['l_web','f_web']};
+  let ytVideos=[];
+  Object.entries(map).forEach(([k,[lk,fk]])=>{
+    const el=document.getElementById(lk),f=document.getElementById(fk);
+    if(s[k]){el.href=s[k];el.target='_blank';el.style.display='block';if(f)f.value=s[k];}
+  });
+  /* لو رابط يوتيوب فيديو — اعرضه مضمّنًا داخل الموقع */
+  if(s.youtube){const id=ytId(s.youtube);
+    if(id)ytVideos.push(id);}
+  document.getElementById('ytList').innerHTML=ytVideos.map(id=>
+    `<div class="vcard"><span class="badge">YouTube</span>
+     <iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/${id}" allow="accelerometer;encrypted-media;picture-in-picture" allowfullscreen></iframe>
+     ${isStaff?'<button class="vdel" onclick="delSocialYt()">🗑️ Delete</button>':''}</div>`
+  ).join('')||'<p class="hint">لا توجد فيديوهات يوتيوب مضافة بعد</p>';
+}
+async function delSocialYt(){if(!confirm('حذف فيديو يوتيوب من روابط الميديا؟'))return;const r=await call('social_youtube_delete');toast(r.msg);if(r.ok)loadSocial();}
+async function loadStoredYt(){
+  const el=document.getElementById('storedYtList');
+  if(!SESSION){el.innerHTML='';return;}
+  const r=await call('yt_list');
+  if(!r.ok){el.innerHTML='';return;}
+  el.innerHTML=r.videos.map(v=>{
+    const id=ytId(v.url);if(!id)return '';
+    return `<div class="vcard"><span class="badge">YouTube</span>${v.status==='pending'?'<span class="badge" style="top:38px;color:#ffb84d;border-color:#ffb84d">⏳ بانتظار الاعتماد</span>':''}
+      <iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/${id}" allow="accelerometer;encrypted-media;picture-in-picture" allowfullscreen></iframe>
+      ${isStaff?`<button class="vdel" onclick="delYt(${v.id})">🗑️ Delete</button>`:''}
+      <div class="vcap">${esc(v.title)||'فيديو يوتيوب'} • ${esc(v.cat)}</div></div>`;
+  }).join('');
+}
+async function delYt(id){if(!confirm('حذف فيديو يوتيوب نهائيًا؟'))return;const r=await call('yt_delete',{id});toast(r.msg);if(r.ok)loadStoredYt();}
+async function saveSocial(){
+  const r=await call('social_set',{youtube:f_yt.value,tiktok:f_tt.value,instagram:f_ig.value,facebook:f_fb.value,whatsapp:f_wa.value,website:f_web.value});
+  toast(r.msg);if(r.ok)loadSocial();
+}
+function pickVideo(){
+  if(!SESSION){alert('سجّل الدخول أولًا من المنصة');return;}
+  const inp=document.createElement('input');inp.type='file';inp.accept='video/mp4,video/webm,video/quicktime';
+  inp.onchange=async e=>{
+    const f=e.target.files[0];if(!f)return;
+    if(f.size>40*1024*1024)return alert('الحد الأقصى 40 ميجا');
+    toast('⏳ جارٍ رفع الفيديو... قد يستغرق دقيقة');
+    const rd=new FileReader();
+    rd.onload=async ev=>{
+      const r=await call('upload_video',{data:ev.target.result,caption:document.getElementById('vcap').value});
+      if(!r.ok)return toast(r.msg);
+      toast('✔ تم رفع الفيديو');document.getElementById('vcap').value='';loadVideos();
+    };
+    rd.readAsDataURL(f);
+  };
+  inp.click();
+}
+async function loadVideos(){
+  const el=document.getElementById('vlist');
+  if(!SESSION)return;
+  const r=await call('gallery_list',{kind:'video'});
+  if(!r.ok){el.innerHTML='<p class="hint">'+esc(r.msg)+'</p>';return;}
+  el.innerHTML='<div class="vgrid">'+r.items.map(v=>`<div class="vcard">
+    ${v.status==='pending'?'<span class="badge" style="background:rgba(255,184,77,.9);color:#062015;border:none;">⏳ بانتظار الاعتماد</span>':''}
+    <video muted loop playsinline preload="metadata" src="${esc(v.file_path)}"></video>
+    ${isStaff?`<button class="vdel" onclick="delGalleryVideo(${v.id})">🗑️ Delete</button>`:''}
+    <div class="vcap">${esc(v.caption)}</div></div>`).join('')+'</div>'
+    ||'<p class="hint">لا توجد فيديوهات بعد — صوّر من تطبيق الموبايل أو ارفع من هنا</p>';
+  bindHoverPlay();
+}
+async function delGalleryVideo(id){if(!confirm('حذف الفيديو المرفوع نهائيًا؟'))return;const r=await call('gallery_delete',{id});toast(r.msg);if(r.ok)loadVideos();}
+/* تشغيل الفيديو عند المرور عليه / لمسه — مثل المواقع العالمية */
+function bindHoverPlay(){
+  document.querySelectorAll('.vcard video').forEach(v=>{
+    v.muted=true;v.loop=true;v.playsInline=true;v.preload='metadata';
+    v.addEventListener('mouseenter',()=>v.play().catch(()=>{}));
+    v.addEventListener('mouseleave',()=>{v.pause();});
+    v.addEventListener('touchstart',()=>{v.paused?v.play().catch(()=>{}):v.pause();},{passive:true});
+  });
+}
+if(SESSION){
+  document.getElementById('upBox').style.display='block';
+  if(['owner','admin'].includes(SESSION.role))document.getElementById('socialAdmin').style.display='block';
+}
+async function loadTicker(){
+  try{
+    const r=await call('announce_get');
+    const items=(r.ok&&r.items)||[];
+    const tk=document.getElementById('ticker');if(!tk)return;
+    if(!items.length){tk.classList.remove('on');return;}
+    const html=items.map(it=>it.url
+      ?`<a class="t-item" target="_blank" rel="noopener" href="${esc(it.url)}">${esc(it.text)}</a>`
+      :`<span class="t-item">${esc(it.text)}</span>`).join('');
+    document.getElementById('tickerTrack').innerHTML=html+html;
+    tk.classList.add('on');
+  }catch(e){}
+}
+loadSocial();loadStoredYt();loadVideos();loadTicker();
+</script>
+</body>
+</html>

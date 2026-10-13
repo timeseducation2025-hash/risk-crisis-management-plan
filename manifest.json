@@ -1,0 +1,17 @@
+{
+  "name": "خطة منظومة إدارة المخاطر والأزمات",
+  "short_name": "المخاطر والأزمات",
+  "description": "risk-crisis-management-plan — التصوير والتقارير من الموبايل مباشرة إلى موقع الجمعية",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "app.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#06130d",
+  "theme_color": "#1b5e3b",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"}
+  ]
+}

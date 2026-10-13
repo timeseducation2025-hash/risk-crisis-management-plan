@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>مكتبة المعرفة ومكتبة الفيديوهات — خطة منظومة إدارة المخاطر والأزمات | risk-crisis-management-plan</title>
+<script src="session.js" defer></script>
+<style>
+:root{--bg0:#06130d;--bg1:#0b241a;--green:#2ee08a;--gold:#e8c469;--ink:#eaf6ef;--muted:#8fb3a1;--red:#ff6b5e;--card:rgba(255,255,255,.05);}
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Cairo",Tahoma,Arial,sans-serif;}
+body{min-height:100vh;background:radial-gradient(1000px 600px at 80% 0%,#134a30 0%,transparent 60%),linear-gradient(160deg,var(--bg0),var(--bg1));color:var(--ink);padding:20px 16px 70px;}
+.wrap{max-width:1100px;margin:0 auto;}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px;padding:14px 18px;border-radius:16px;background:var(--card);border:1px solid rgba(46,224,138,.3);backdrop-filter:blur(10px);}
+header h1{font-size:18px;background:linear-gradient(90deg,var(--green),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;}
+header p{font-size:12px;color:var(--muted);margin-top:3px;}
+.btn{background:linear-gradient(135deg,var(--green),#0f9d58);border:none;color:#062015;font-weight:900;font-size:14px;padding:11px 20px;border-radius:11px;cursor:pointer;min-height:44px;text-decoration:none;display:inline-block;}
+.btn.blue{background:linear-gradient(135deg,#4db8ff,#1a6da8);color:#fff;}
+.btn.red{background:linear-gradient(135deg,var(--red),#b3261e);color:#fff;}
+.themeBtn{border:1px solid rgba(46,224,138,.4);background:rgba(255,255,255,.06);color:var(--green);border-radius:10px;padding:9px 16px;cursor:pointer;font-weight:bold;font-size:13px;min-height:44px;}
+/* شريط الإعلانات */
+.ticker{display:none;position:relative;overflow:hidden;background:linear-gradient(90deg,#1b5e3b,#0e9e56,#1b5e3b);color:#fff;border-radius:12px;border:1px solid rgba(232,196,105,.5);margin-bottom:14px;min-height:42px;}
+.ticker.on{display:block;}
+.ticker .t-lbl{position:absolute;top:0;right:0;bottom:0;z-index:3;display:flex;align-items:center;padding:0 14px;font-weight:900;font-size:12.5px;background:linear-gradient(90deg,#e8c469,#c9a24b);color:#062015;border-radius:0 12px 12px 0;}
+.ticker .t-track{display:flex;align-items:center;gap:48px;white-space:nowrap;padding:11px 0;animation:tick 26s linear infinite;will-change:transform;}
+.ticker:hover .t-track{animation-play-state:paused;}
+.ticker .t-item{font-size:13.5px;font-weight:bold;color:#fff;text-decoration:none;}
+.ticker .t-item::before{content:"📢 ";}
+@keyframes tick{from{transform:translateX(-100%)}to{transform:translateX(100vw)}}
+/* تبويبات المكتبتين */
+.mtabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0;}
+.mtabs button{border:1px solid rgba(46,224,138,.35);background:rgba(255,255,255,.04);color:var(--green);padding:11px 22px;border-radius:12px;cursor:pointer;font-size:14.5px;font-weight:bold;min-height:44px;transition:.2s;}
+.mtabs button.active{background:var(--green);color:#062015;}
+section.lib{display:none;}section.lib.active{display:block;animation:fade .3s;}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
+.panel{background:var(--card);border:1px solid rgba(46,224,138,.25);border-radius:16px;padding:18px;margin-bottom:16px;backdrop-filter:blur(10px);}
+.panel h2{color:var(--gold);font-size:16px;margin-bottom:12px;border-bottom:1px solid rgba(232,196,105,.3);padding-bottom:8px;}
+label{display:block;font-size:13px;color:var(--green);font-weight:bold;margin:10px 0 4px;}
+input,select{width:100%;padding:11px;border-radius:10px;border:1px solid rgba(46,224,138,.4);background:rgba(0,0,0,.35);color:var(--ink);font-size:14px;min-height:44px;}
+input:focus,select:focus{outline:2px solid var(--green);}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;align-items:end;}
+/* أقسام الكتب */
+.cats{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px;}
+.chip{border:1px solid rgba(232,196,105,.4);background:rgba(232,196,105,.1);color:var(--gold);padding:8px 16px;border-radius:20px;cursor:pointer;font-size:13px;font-weight:bold;min-height:40px;}
+.chip.active{background:var(--gold);color:#062015;}
+/* بطاقات الكتب */
+.books{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+@media(max-width:900px){.books{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:600px){.books{grid-template-columns:repeat(2,1fr);}}
+.book{background:linear-gradient(160deg,rgba(46,224,138,.1),rgba(255,255,255,.03));border:1px solid rgba(46,224,138,.3);border-radius:14px;padding:14px;text-align:center;transition:.25s;position:relative;}
+.book:hover{transform:translateY(-5px);box-shadow:0 16px 30px rgba(0,0,0,.45);border-color:var(--green);}
+.book .bico{font-size:40px;margin-bottom:8px;}
+.book .bt{font-size:13.5px;font-weight:bold;color:var(--ink);min-height:38px;display:flex;align-items:center;justify-content:center;}
+.book .bc{font-size:11px;color:var(--muted);margin-top:5px;}
+.book .bl{display:inline-block;font-size:10.5px;padding:2px 10px;border-radius:10px;margin-top:6px;background:rgba(77,184,255,.15);color:#4db8ff;border:1px solid #4db8ff;}
+.book .ops{display:flex;gap:6px;justify-content:center;margin-top:10px;}
+.book .ops a,.book .ops button{flex:1;font-size:12px;padding:8px 4px;border-radius:8px;cursor:pointer;font-weight:bold;text-decoration:none;text-align:center;min-height:38px;display:inline-flex;align-items:center;justify-content:center;}
+/* شبكة الفيديوهات */
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:800px){.vgrid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.vgrid{grid-template-columns:1fr;}}
+.vcard{position:relative;border:1px solid rgba(46,224,138,.3);border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/9;}
+.vcard iframe,.vcard video{width:100%;height:100%;border:0;display:block;object-fit:cover;}
+.vcard .vtt{position:absolute;bottom:0;right:0;left:0;background:linear-gradient(transparent,rgba(4,14,9,.92));color:#fff;font-size:12.5px;padding:18px 10px 8px;pointer-events:none;}
+.vdel{position:absolute;top:8px;left:8px;z-index:3;background:rgba(179,38,30,.94);border:1px solid #ff6b5e;color:#fff;border-radius:8px;padding:7px 10px;cursor:pointer;font-weight:bold;}
+.pend{position:absolute;top:8px;right:8px;background:rgba(255,184,77,.9);color:#062015;font-size:11px;font-weight:bold;padding:3px 10px;border-radius:10px;z-index:2;}
+.hint{font-size:12px;color:var(--muted);text-align:center;padding:12px;}
+.toast{position:fixed;bottom:18px;right:18px;background:rgba(6,19,13,.95);border:1px solid var(--green);color:var(--green);padding:12px 20px;border-radius:12px;font-weight:bold;display:none;z-index:99;}
+/* الوضع الفاتح (الأساسي) */
+[data-theme="light"]{--ink:#13271c;--muted:#4f6b5b;--green:#0e9e56;--gold:#8a6d1f;--red:#b3261e;--card:#fff;}
+[data-theme="light"] body{background:radial-gradient(1000px 600px at 80% 0%,#d9efe3 0%,transparent 60%),linear-gradient(160deg,#f6faf7,#e9f2ec);}
+[data-theme="light"] .panel,[data-theme="light"] header{background:#fff;border-color:#cfe0d6;box-shadow:0 8px 24px rgba(27,94,59,.08);}
+[data-theme="light"] input,[data-theme="light"] select{background:#fbfdfc;border-color:#9bb8a6;color:#13271c;}
+[data-theme="light"] .book{background:linear-gradient(160deg,#eaf6ef,#fff);border-color:#bcd8c6;}
+[data-theme="light"] .mtabs button{background:#eef6f0;border-color:#9bb8a6;color:#1b5e3b;}
+[data-theme="light"] .mtabs button.active{background:#1b5e3b;color:#fff;}
+[data-theme="light"] .chip{background:#fdf6e3;border-color:#c9a24b;color:#8a6d1f;}
+[data-theme="light"] .chip.active{background:#c9a24b;color:#fff;}
+[data-theme="light"] .themeBtn{border-color:#9bb8a6;background:#eef6f0;color:#1b5e3b;}
+[data-theme="light"] .ticker{background:linear-gradient(90deg,#0e7a48,#1b9e5f,#0e7a48);}
+@media(min-width:701px){.panel{padding:16px;} .books{gap:12px;} .book{padding:12px;} .book .bico{font-size:34px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div><h1>📚 مكتبة المعرفة ومكتبة الفيديوهات</h1><p>خطة منظومة إدارة المخاطر والأزمات بالفروع والفرق الإرشادية • risk-crisis-management-plan</p></div>
+  <div style="display:flex;gap:8px;">
+    <button class="themeBtn" onclick="toggleTheme()">🌙 داكن</button>
+    <a class="btn blue" href="index.html">← المنصة</a>
+  </div>
+</header>
+
+<div class="ticker" id="ticker"><span class="t-lbl">إعلانات</span><div class="t-track" id="tickerTrack"></div></div>
+
+<nav class="mtabs">
+  <button class="active" onclick="mtab(0,this)">📚 مكتبة المعرفة (كتب PDF)</button>
+  <button onclick="mtab(1,this)">🎬 مكتبة الفيديوهات</button>
+</nav>
+
+<!-- ============ مكتبة المعرفة ============ -->
+<section class="lib active">
+  <div class="panel" id="bookUp" style="display:none;">
+    <h2>⬆️ رفع كتاب PDF (فريق الإدارة)</h2>
+    <div class="row">
+      <div><label>اسم الكتاب</label><input id="bTitle" style="direction:rtl;" placeholder="مثال: كتيّب المخاطر الإرشادي"></div>
+      <div><label>القسم</label><select id="bCat"></select></div>
+      <div><label>اللغة</label><select id="bLang"><option>عربي</option><option>إنجليزي</option></select></div>
+      <div><button class="btn" style="width:100%;" onclick="pickPdf()">📕 اختيار ورفع PDF</button></div>
+    </div>
+    <p class="hint">الحد الأقصى 25 ميجا — يُنشر فورًا لأن الرفع من فريق الإدارة.</p>
+  </div>
+  <div class="panel" id="catAdmin" style="display:none;">
+    <h2>🗂 إدارة أقسام المكتبة (المالك وأدمن الموقع)</h2>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <input id="newCat" style="flex:1;min-width:180px;direction:rtl;" placeholder="اسم قسم جديد...">
+      <button class="btn" onclick="addCat()">➕ إضافة قسم</button>
+    </div>
+    <div class="cats" id="catList" style="margin-top:12px;"></div>
+  </div>
+  <div class="cats" id="bookCats"></div>
+  <div class="books" id="bookList"><p class="hint">⏳ جارٍ التحميل...</p></div>
+</section>
+
+<!-- ============ مكتبة الفيديوهات ============ -->
+<section class="lib">
+  <div class="panel">
+    <h2>➕ إضافة فيديو — رابط يوتيوب يُعرض داخل الموقع مباشرة (بدون تحميل وبدون خروج)</h2>
+    <div class="row">
+      <div style="grid-column:span 2;"><label>رابط يوتيوب</label><input id="ytUrl" placeholder="https://youtube.com/watch?v=... أو youtu.be/..." style="direction:ltr;"></div>
+      <div><label>عنوان الفيديو</label><input id="ytTitle" style="direction:rtl;" placeholder="عنوان مختصر"></div>
+      <div><label>القسم</label><select id="ytCat"><option>كشفية</option><option>علمية</option><option>تعليمية</option><option>توعوية</option><option>ترفيهية</option><option>أنشطة الفروع</option></select></div>
+      <div><button class="btn" style="width:100%;" onclick="addYt()">🔗 إضافة الفيديو</button></div>
+    </div>
+    <p class="hint" id="ytHint">فيديوهات المستخدمين العاديين تظهر بعد اعتماد الإدارة • فيديوهات فريق الإدارة تُنشر فورًا.</p>
+  </div>
+  <div class="panel">
+    <h2>🎥 فيديوهات مرفوعة من الأجهزة (تعمل بالمرور عليها)</h2>
+    <div class="vgrid" id="upVideos"></div>
+  </div>
+  <div class="panel">
+    <h2>🌍 موارد كشفية تعليمية موثوقة</h2>
+    <div class="row">
+      <a class="btn blue" href="https://www.scout.org/node/3751" target="_blank" rel="noopener noreferrer">دليل الكشافة للاستعداد للكوارث</a>
+      <a class="btn blue" href="https://www.scout.org/cypp" target="_blank" rel="noopener noreferrer">حماية الأطفال والشباب في الكشافة</a>
+      <a class="btn blue" href="https://www.youtube.com/@WorldScouting/videos" target="_blank" rel="noopener noreferrer">فيديوهات World Scouting الرسمية</a>
+      <a class="btn blue" href="https://www.scout.org/resources" target="_blank" rel="noopener noreferrer">موارد المنظمة الكشفية العالمية</a>
+    </div>
+  </div>
+  <div class="cats" id="ytCats"></div>
+  <div class="vgrid" id="ytList"><p class="hint">⏳ جارٍ التحميل...</p></div>
+</section>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const API='api/index.php';
+const SESSION=JSON.parse(localStorage.getItem('egga_session')||'null');
+const isStaff=SESSION&&['owner','admin','supervisor'].includes(SESSION.role);
+const canCats=SESSION&&['owner','admin'].includes(SESSION.role);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('rcmp_theme',t);
+  document.querySelectorAll('.themeBtn').forEach(b=>b.textContent=t==='light'?'🌙 داكن':'☀️ فاتح');}
+function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light');}
+applyTheme(localStorage.getItem('rcmp_theme')||'light');
+async function call(action,data={}){
+  const body={action,...data};if(SESSION&&SESSION.token)body.token=SESSION.token;
+  try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});return await r.json();}
+  catch(e){return{ok:false,msg:'تعذر الاتصال بالخادم'};}
+}
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2800);}
+function mtab(i,btn){document.querySelectorAll('section.lib').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.mtabs button').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('section.lib')[i].classList.add('active');btn.classList.add('active');}
+function ytId(u){try{const url=new URL(u,location.href),host=url.hostname.replace(/^www\./,'');if(host==='youtu.be')return url.pathname.split('/').filter(Boolean)[0]?.match(/^[\w-]{11}$/)?.[0]||null;if(!['youtube.com','m.youtube.com','youtube-nocookie.com'].includes(host))return null;const id=url.searchParams.get('v')||url.pathname.match(/\/(?:shorts|live|embed|v)\/([\w-]{11})(?:\/|$)/)?.[1];return id&&/^[\w-]{11}$/.test(id)?id:null;}catch{return null;}}
+
+/* شريط الإعلانات */
+async function loadTicker(){
+  const r=await call('announce_get');const items=(r.ok&&r.items)||[];
+  const tk=document.getElementById('ticker');if(!tk)return;
+  if(!items.length){tk.classList.remove('on');return;}
+  const h=items.map(it=>it.url?`<a class="t-item" target="_blank" rel="noopener" href="${esc(it.url)}">${esc(it.text)}</a>`:`<span class="t-item">${esc(it.text)}</span>`).join('');
+  document.getElementById('tickerTrack').innerHTML=h+h;tk.classList.add('on');
+}
+
+/* ===== مكتبة المعرفة ===== */
+let CATS=[],CUR_CAT='الكل';
+async function loadCats(){
+  const r=await call('lib_cats_get');CATS=(r.ok&&r.cats)||[];
+  /* قائمة الأقسام للاختيار عند الرفع */
+  document.getElementById('bCat').innerHTML=CATS.map(c=>`<option>${esc(c)}</option>`).join('');
+  /* شرائح التصفية */
+  document.getElementById('bookCats').innerHTML=`<button class="chip ${CUR_CAT==='الكل'?'active':''}" onclick="filterCat('الكل',this)">الكل</button>`+
+    CATS.map(c=>`<button class="chip ${CUR_CAT===c?'active':''}" onclick="filterCat('${esc(c)}',this)">${esc(c)}</button>`).join('');
+  /* إدارة الأقسام */
+  if(canCats)document.getElementById('catList').innerHTML=CATS.map(c=>
+    `<span class="chip">${esc(c)} <b style="cursor:pointer;color:var(--red);" onclick="delCat('${esc(c)}')">✖</b></span>`).join('');
+}
+function filterCat(c,btn){CUR_CAT=c;document.querySelectorAll('#bookCats .chip').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderBooks();}
+async function addCat(){
+  const v=newCat.value.trim();if(!v)return toast('اكتب اسم القسم');
+  if(CATS.includes(v))return toast('القسم موجود');
+  const r=await call('lib_cats_set',{cats:[...CATS,v]});toast(r.msg);if(r.ok){newCat.value='';loadCats();}
+}
+async function delCat(c){
+  if(!confirm('حذف القسم «'+c+'»؟ (الكتب داخله تبقى)'))return;
+  const r=await call('lib_cats_set',{cats:CATS.filter(x=>x!==c)});toast(r.msg);if(r.ok)loadCats();
+}
+let BOOKS=[];
+async function loadBooks(){
+  const r=await call('library_list');
+  if(!r.ok){document.getElementById('bookList').innerHTML='<p class="hint">'+esc(r.msg)+'</p>';return;}
+  BOOKS=r.books;renderBooks();
+}
+function renderBooks(){
+  const list=BOOKS.filter(b=>CUR_CAT==='الكل'||b.cat===CUR_CAT);
+  document.getElementById('bookList').innerHTML=list.map(b=>`<div class="book">
+    <div class="bico">${b.lang==='إنجليزي'?'📘':'📕'}</div>
+    <div class="bt">${esc(b.caption)}</div>
+    <div class="bc">${esc(b.cat)}</div>
+    <span class="bl">${esc(b.lang)}</span>
+    <div class="ops">
+      <a href="${esc(b.file_path)}" target="_blank" rel="noopener" style="background:rgba(46,224,138,.15);border:1px solid var(--green);color:var(--green);">📖 قراءة</a>
+      <a href="${esc(b.file_path)}" download style="background:rgba(77,184,255,.15);border:1px solid #4db8ff;color:#4db8ff;">⬇️ تحميل</a>
+      ${canCats?`<button class="btn red" style="min-height:38px;" onclick="delBook(${b.id})">🗑</button>`:''}
+    </div></div>`).join('')||'<p class="hint">لا توجد كتب في هذا القسم بعد</p>';
+}
+function pickPdf(){
+  if(!isStaff)return toast('رفع الكتب لفريق الإدارة');
+  const inp=document.createElement('input');inp.type='file';inp.accept='application/pdf';
+  inp.onchange=async e=>{
+    const f=e.target.files[0];if(!f)return;
+    if(f.size>25*1024*1024)return toast('الحد الأقصى 25 ميجا');
+    if(!bTitle.value.trim())return toast('اكتب اسم الكتاب أولًا');
+    toast('⏳ جارٍ رفع الكتاب...');
+    const rd=new FileReader();
+    rd.onload=async ev=>{
+      const r=await call('library_upload',{data:ev.target.result,title:bTitle.value,cat:bCat.value,lang:bLang.value});
+      toast(r.msg);if(r.ok){bTitle.value='';loadBooks();}
+    };
+    rd.readAsDataURL(f);
+  };
+  inp.click();
+}
+async function delBook(id){if(!confirm('حذف هذا الكتاب نهائيًا؟'))return;const r=await call('library_delete',{id});toast(r.msg);loadBooks();}
+
+/* ===== مكتبة الفيديوهات ===== */
+let YT=[],CUR_YCAT='الكل';
+async function loadYt(){
+  const r=await call('yt_list');
+  if(!r.ok){document.getElementById('ytList').innerHTML='<p class="hint">'+esc(r.msg)+'</p>';return;}
+  YT=r.videos;
+  const cats=['الكل',...new Set(YT.map(v=>v.cat))];
+  document.getElementById('ytCats').innerHTML=cats.map(c=>
+    `<button class="chip ${CUR_YCAT===c?'active':''}" onclick="filterYt('${esc(c)}',this)">${esc(c)}</button>`).join('');
+  renderYt();
+}
+function filterYt(c,btn){CUR_YCAT=c;document.querySelectorAll('#ytCats .chip').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderYt();}
+function renderYt(){
+  const list=YT.filter(v=>CUR_YCAT==='الكل'||v.cat===CUR_YCAT);
+  document.getElementById('ytList').innerHTML=list.map(v=>{
+    const id=ytId(v.url);if(!id)return '';
+    return `<div class="vcard">${v.status==='pending'?'<span class="pend">⏳ بانتظار الاعتماد</span>':''}
+      <iframe loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/${id}" allow="accelerometer;encrypted-media;picture-in-picture" allowfullscreen></iframe>
+      ${isStaff?`<button class="vdel" onclick="delYt(${v.id})">🗑️ Delete</button>`:''}
+      <div class="vtt">${esc(v.title)||'فيديو يوتيوب'} • ${esc(v.cat)}</div></div>`;
+  }).join('')||'<p class="hint">لا توجد فيديوهات في هذا القسم بعد</p>';
+}
+async function addYt(){
+  if(!SESSION)return toast('سجّل الدخول من المنصة أولًا');
+  const r=await call('yt_add',{url:ytUrl.value,title:ytTitle.value,cat:ytCat.value});
+  toast(r.msg);if(r.ok){ytUrl.value=ytTitle.value='';loadYt();}
+}
+async function delYt(id){if(!confirm('حذف فيديو يوتيوب نهائيًا؟'))return;const r=await call('yt_delete',{id});toast(r.msg);if(r.ok)loadYt();}
+async function loadUpVids(){
+  const r=await call('gallery_list',{kind:'video'});
+  if(!r.ok){document.getElementById('upVideos').innerHTML='';return;}
+  document.getElementById('upVideos').innerHTML=r.items.map(v=>`<div class="vcard">
+    ${v.status==='pending'?'<span class="pend">⏳ بانتظار الاعتماد</span>':''}
+    <video muted loop playsinline preload="metadata" src="${esc(v.file_path)}"></video>
+    ${isStaff?`<button class="vdel" onclick="delGalleryVideo(${v.id})">🗑️ Delete</button>`:''}
+    <div class="vtt">${esc(v.caption)} • ${esc(v.cat)}</div></div>`).join('')||'<p class="hint">لا توجد فيديوهات مرفوعة بعد — ارفع من صفحة الميديا أو من كاميرا تطبيق الموبايل</p>';
+  /* تشغيل بالمرور/اللمس */
+  document.querySelectorAll('#upVideos video').forEach(v=>{
+    v.addEventListener('mouseenter',()=>v.play().catch(()=>{}));
+    v.addEventListener('mouseleave',()=>v.pause());
+    v.addEventListener('touchstart',()=>{v.paused?v.play().catch(()=>{}):v.pause();},{passive:true});
+  });
+}
+async function delGalleryVideo(id){if(!confirm('حذف الفيديو المرفوع نهائيًا؟'))return;const r=await call('gallery_delete',{id});toast(r.msg);if(r.ok)loadUpVids();}
+if(isStaff)document.getElementById('bookUp').style.display='block';
+if(canCats)document.getElementById('catAdmin').style.display='block';
+loadTicker();loadCats();loadBooks();loadYt();loadUpVids();
+</script>
+</body>
+</html>
