@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#1b5e3b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.json">
+<title>تطبيق المخاطر والأزمات — risk-crisis-management-plan</title>
+<script src="session.js" defer></script>
+<style>
+:root{--green:#2ee08a;--gold:#e8c469;--ink:#eaf6ef;--muted:#8fb3a1;--red:#ff6b5e;}
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Cairo",Tahoma,Arial,sans-serif;-webkit-tap-highlight-color:transparent;}
+body{min-height:100vh;background:linear-gradient(160deg,#06130d,#0b241a);color:var(--ink);
+  padding:calc(env(safe-area-inset-top) + 16px) 16px calc(env(safe-area-inset-bottom) + 90px);}
+h1{font-size:19px;background:linear-gradient(90deg,var(--green),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;text-align:center;}
+.sub{font-size:11.5px;color:var(--muted);text-align:center;margin-top:4px;}
+.card{background:rgba(255,255,255,.05);border:1px solid rgba(46,224,138,.25);border-radius:18px;padding:18px;margin-top:14px;backdrop-filter:blur(8px);}
+.authTitle{font-size:17px;color:var(--gold);text-align:center;margin-bottom:10px;}
+.authForm[hidden]{display:none;}
+.authForm .swap{text-align:center;font-size:13px;color:var(--muted);margin-top:12px;line-height:1.8;}
+.authForm .swap a,.authForm .swap button{color:var(--gold);cursor:pointer;text-decoration:underline;background:none;border:0;font:inherit;padding:4px;}
+label{display:block;font-size:13px;color:var(--green);font-weight:bold;margin:10px 0 4px;}
+input{width:100%;padding:13px;border-radius:12px;border:1px solid rgba(46,224,138,.4);background:rgba(0,0,0,.35);color:var(--ink);font-size:16px;min-height:48px;}
+input:focus{outline:2px solid var(--green);}
+.bigbtn{display:flex;flex-direction:column;align-items:center;gap:8px;padding:22px 10px;border-radius:18px;border:1px solid rgba(46,224,138,.4);
+  background:linear-gradient(150deg,rgba(46,224,138,.14),rgba(255,255,255,.03));color:var(--ink);font-weight:900;font-size:15px;cursor:pointer;text-align:center;transition:.2s;}
+.bigbtn:active{transform:scale(.96);background:rgba(46,224,138,.25);}
+.bigbtn .ico{font-size:38px;}
+.bigbtn small{font-size:11px;color:var(--muted);font-weight:normal;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px;}
+.bar{height:8px;background:rgba(255,255,255,.1);border-radius:6px;overflow:hidden;margin-top:10px;display:none;}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--gold));border-radius:6px;transition:width .2s;}
+.msg{text-align:center;font-size:13.5px;font-weight:bold;min-height:22px;margin-top:10px;}
+.msg.ok{color:var(--green);} .msg.err{color:var(--red);}
+nav.tabs{position:fixed;bottom:0;right:0;left:0;z-index:50;display:flex;background:rgba(6,19,13,.97);border-top:1px solid rgba(46,224,138,.3);
+  padding-bottom:env(safe-area-inset-bottom);}
+nav.tabs a{flex:1;text-align:center;padding:12px 4px;color:var(--muted);text-decoration:none;font-size:11px;font-weight:bold;min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;}
+nav.tabs a.on{color:var(--green);}
+nav.tabs a .ic{font-size:20px;}
+#installBtn{display:none;width:100%;margin-top:12px;background:linear-gradient(135deg,var(--gold),#b8933a);border:none;color:#062015;font-weight:900;font-size:14px;padding:14px;border-radius:12px;cursor:pointer;min-height:48px;}
+.hint{font-size:11.5px;color:var(--muted);text-align:center;margin-top:10px;line-height:1.8;}
+.offline{position:fixed;top:0;right:0;left:0;background:#b3261e;color:#fff;text-align:center;font-size:12.5px;padding:8px;display:none;z-index:99;}
+</style>
+</head>
+<body>
+<div class="offline" id="off">📡 لا يوجد اتصال بالإنترنت — الرفع متوقف مؤقتًا</div>
+<h1>🛡️ منظومة إدارة المخاطر والأزمات</h1>
+<p class="sub">تطبيق الموبايل — risk-crisis-management-plan<br>التصوير يرفع تلقائيًا إلى موقع الجمعية</p>
+
+<!-- تسجيل الدخول -->
+<div class="card" id="loginCard">
+  <h2 class="authTitle" id="authTitle">دخول</h2>
+  <form id="loginForm" class="authForm" onsubmit="doLogin(event)">
+    <label for="le">البريد الإلكتروني</label><input id="le" type="email" autocomplete="email" inputmode="email" style="direction:ltr;" required>
+    <label for="lp">كلمة المرور</label><input id="lp" type="password" autocomplete="current-password" style="direction:ltr;" required>
+    <button class="bigbtn" type="submit" style="width:100%;margin-top:14px;">🔓 دخول</button>
+    <div class="swap">ليس لديك حساب؟ <button type="button" onclick="authMode('register')">إنشاء حساب</button> • <button type="button" onclick="authMode('activate')">لدي كود تفعيل</button></div>
+  </form>
+  <form id="registerForm" class="authForm" onsubmit="doRegister(event)" hidden>
+    <label for="regName">الاسم بالكامل</label><input id="regName" type="text" autocomplete="name" required>
+    <label for="regEmail">البريد الإلكتروني</label><input id="regEmail" type="email" autocomplete="email" inputmode="email" style="direction:ltr;" required>
+    <label for="regGov">المحافظة / الفرع</label><input id="regGov" type="text" autocomplete="address-level1" required>
+    <label for="regPhone">رقم الواتساب</label><input id="regPhone" type="tel" autocomplete="tel" inputmode="tel" placeholder="01xxxxxxxxx" style="direction:ltr;" required>
+    <label for="regPass">كلمة المرور</label><input id="regPass" type="password" autocomplete="new-password" minlength="6" required>
+    <label for="regPassConfirm">تأكيد كلمة المرور</label><input id="regPassConfirm" type="password" autocomplete="new-password" minlength="6" required>
+    <button class="bigbtn" type="submit" style="width:100%;margin-top:14px;">✍️ إنشاء الحساب</button>
+    <div class="swap"><button type="button" onclick="authMode('login')">← دخول</button> • <button type="button" onclick="authMode('activate')">إدخال كود التفعيل</button></div>
+  </form>
+  <form id="activateForm" class="authForm" onsubmit="doActivateAccount(event)" hidden>
+    <label for="actEmail">البريد الإلكتروني</label><input id="actEmail" type="email" autocomplete="email" inputmode="email" style="direction:ltr;" required>
+    <label for="actCode">كود التفعيل</label><input id="actCode" autocomplete="one-time-code" placeholder="RCMP-XXXX-XXXX" style="direction:ltr;text-align:center;letter-spacing:2px;font-weight:900;" required>
+    <button class="bigbtn" type="submit" style="width:100%;margin-top:14px;">🎫 تفعيل الحساب</button>
+    <p class="hint">اطلب كود التفعيل من الإدارة عبر واتساب ثم أدخله هنا.</p>
+    <p class="hint"><a id="appWaAct" href="#" target="_blank" rel="noopener" style="color:#25D366;font-weight:bold;">🟢 طلب كود التفعيل عبر واتساب</a></p>
+    <div class="swap"><button type="button" onclick="authMode('login')">← دخول</button> • <button type="button" onclick="authMode('register')">إنشاء حساب</button></div>
+  </form>
+  <div class="msg" id="lmsg" aria-live="polite"></div>
+  <button id="installBtn" onclick="installApp()">📲 تثبيت التطبيق على الشاشة الرئيسية</button>
+  <p class="hint">آيفون: من سفاري ← زر المشاركة ← «إضافة إلى الشاشة الرئيسية»</p>
+</div>
+
+<!-- الالتقاط والرفع -->
+<div id="appBody" style="display:none;">
+  <div class="card" style="text-align:center;">
+    <div style="font-size:14px;">👤 <b id="who"></b></div>
+    <button style="margin-top:8px;background:none;border:none;color:var(--red);font-size:12px;cursor:pointer;" onclick="logout()">تسجيل خروج</button>
+  </div>
+
+  <div class="card">
+    <label>وصف الصورة / الفيديو</label>
+    <input id="cap" placeholder="مثال: تدريب إدارة المخاطر — فرع الفيوم" style="direction:rtl;">
+    <div class="grid2">
+      <div class="bigbtn" onclick="capture('image')"><span class="ico">📸</span>التقاط صورة<small>تُرفع فورًا للموقع</small></div>
+      <div class="bigbtn" onclick="capture('video')"><span class="ico">🎥</span>تصوير فيديو<small>حتى 40 ميجا</small></div>
+    </div>
+    <div class="bar" id="pbar"><i id="pfill"></i></div>
+    <div class="msg" id="umsg"></div>
+    <p class="hint">📌 صور وفيديوهات المستخدمين تظهر في الموقع <b>بعد اعتماد الإدارة</b> مباشرة.</p>
+  </div>
+
+  <div class="card" style="text-align:center;">
+    <a href="index.html" style="color:var(--green);font-weight:bold;font-size:14px;text-decoration:none;">🌐 فتح المنصة الكاملة ←</a>
+  </div>
+</div>
+
+<nav class="tabs">
+  <a href="#" class="on" onclick="return false;"><span class="ic">📸</span>التصوير</a>
+  <a href="index.html"><span class="ic">🏠</span>المنصة</a>
+  <a href="library.html"><span class="ic">📚</span>المكتبة</a>
+  <a href="media.html"><span class="ic">🎬</span>الميديا</a>
+  <a href="shop.html" id="appShopLink" style="display:none;"><span class="ic">🛒</span>نخبة الشرق</a>
+  <a href="bodycare.html" id="appBodycareLink" style="display:none;"><span class="ic">🌿</span>فيرجينيا الشرق</a>
+</nav>
+
+<script>
+const API='api/index.php';
+let SESSION=JSON.parse(localStorage.getItem('egga_session')||'null');
+let WA_NUM='201000973608';
+async function call(action,data={}){
+  const body={action,...data};if(SESSION&&SESSION.token)body.token=SESSION.token;
+  const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  return await r.json();
+}
+function msg(el,t,cls){const e=document.getElementById(el);e.textContent=t;e.className='msg '+cls;}
+function authMode(mode,email='',focus=true){
+  const forms={login:'loginForm',register:'registerForm',activate:'activateForm'};
+  Object.entries(forms).forEach(([key,id])=>document.getElementById(id).hidden=key!==mode);
+  document.getElementById('authTitle').textContent=mode==='login'?'دخول':mode==='register'?'إنشاء حساب':'تفعيل الحساب';
+  if(email){const target=document.getElementById(mode==='activate'?'actEmail':'le');target.value=email;}
+  msg('lmsg','','');
+  const focusId=mode==='login'?'le':mode==='register'?'regName':'actEmail';
+  if(focus)document.getElementById(focusId).focus({preventScroll:true});
+}
+async function doLogin(event){
+  event?.preventDefault();
+  msg('lmsg','جارٍ الدخول...','');
+  try{
+    const r=await call('login',{email:document.getElementById('le').value,pass:document.getElementById('lp').value});
+    if(!r.ok)return msg('lmsg',r.msg,'err');
+    SESSION={name:r.name,email:r.email,token:r.token,role:r.role};
+    localStorage.setItem('egga_session',JSON.stringify(SESSION));
+    enter();
+    refreshMobileStoreLinks();
+  }catch(e){msg('lmsg','تعذر الاتصال بالخادم','err');}
+}
+async function refreshMobileStoreLinks(){
+  const [scoutStore,bodycareStore]=await Promise.all([call('store_get'),call('bodycare_store_get')]);
+  const owner=SESSION&&SESSION.role==='owner';
+  document.getElementById('appShopLink').style.display=scoutStore.ok&&(scoutStore.enabled||owner)?'flex':'none';
+  document.getElementById('appBodycareLink').style.display=bodycareStore.ok&&(bodycareStore.enabled||owner)?'flex':'none';
+}
+async function doRegister(event){
+  event?.preventDefault();
+  if(document.getElementById('regPass').value!==document.getElementById('regPassConfirm').value)return msg('lmsg','كلمتا المرور غير متطابقتين','err');
+  msg('lmsg','جارٍ إنشاء الحساب...','');
+  try{
+    const email=document.getElementById('regEmail').value;
+    const r=await call('register',{name:document.getElementById('regName').value,email,pass:document.getElementById('regPass').value,gov:document.getElementById('regGov').value,phone:document.getElementById('regPhone').value});
+    if(!r.ok)return msg('lmsg',r.msg,'err');
+    if(r.wa)WA_NUM=r.wa;
+    document.getElementById('appWaAct').href='https://wa.me/'+WA_NUM+'?text='+encodeURIComponent('السلام عليكم، سجلت في تطبيق «خطة منظومة إدارة المخاطر والأزمات» وأطلب كود تفعيل حسابي.');
+    authMode('activate',email);
+    msg('lmsg',r.msg,'ok');
+  }catch(e){msg('lmsg','تعذر الاتصال بالخادم','err');}
+}
+async function doActivateAccount(event){
+  event?.preventDefault();
+  msg('lmsg','جارٍ التفعيل...','');
+  try{
+    const email=document.getElementById('actEmail').value;
+    const r=await call('activate_account',{email,code:document.getElementById('actCode').value});
+    if(!r.ok)return msg('lmsg',r.msg,'err');
+    authMode('login',email);
+    msg('lmsg','🎉 '+r.msg,'ok');
+  }catch(e){msg('lmsg','تعذر الاتصال بالخادم','err');}
+}
+function enter(){
+  document.getElementById('loginCard').style.display='none';
+  document.getElementById('appBody').style.display='block';
+  document.getElementById('who').textContent=SESSION.name;
+}
+async function logout(){
+  if(window.logoutEverywhere)return logoutEverywhere();
+  localStorage.removeItem('egga_session');location.reload();
+}
+function capture(kind){
+  const inp=document.createElement('input');
+  inp.type='file';
+  inp.accept=kind==='image'?'image/*':'video/*';
+  inp.setAttribute('capture','environment'); /* يفتح الكاميرا مباشرة على الموبايل */
+  inp.onchange=e=>{const f=e.target.files[0];if(f)upload(f,kind);};
+  inp.click();
+}
+function upload(file,kind){
+  const maxMb=kind==='video'?40:8;
+  if(file.size>maxMb*1024*1024)return msg('umsg','الملف أكبر من '+maxMb+' ميجا','err');
+  const bar=document.getElementById('pbar'),fill=document.getElementById('pfill');
+  bar.style.display='block';fill.style.width='15%';
+  msg('umsg','⏳ جارٍ الرفع إلى الموقع...','');
+  const rd=new FileReader();
+  rd.onprogress=e=>{if(e.lengthComputable)fill.style.width=Math.round(e.loaded/e.total*60)+'%';};
+  rd.onload=async ev=>{
+    fill.style.width='75%';
+    try{
+      const r=await call('quick_upload',{data:ev.target.result,kind,caption:document.getElementById('cap').value});
+      fill.style.width='100%';
+      if(!r.ok){msg('umsg',r.msg,'err');fill.style.width='0';bar.style.display='none';return;}
+      msg('umsg',r.msg,'ok');
+      document.getElementById('cap').value='';
+      setTimeout(()=>{bar.style.display='none';fill.style.width='0';},1800);
+    }catch(e){msg('umsg','تعذر الاتصال — حاول مجددًا','err');bar.style.display='none';}
+  };
+  rd.readAsDataURL(file);
+}
+/* حالة الاتصال */
+window.addEventListener('offline',()=>document.getElementById('off').style.display='block');
+window.addEventListener('online',()=>document.getElementById('off').style.display='none');
+/* تثبيت PWA */
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;
+  document.getElementById('installBtn').style.display='block';});
+async function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;
+  document.getElementById('installBtn').style.display='none';}
+async function bootApp(){
+  try{const info=await call('wa_info');if(info.ok&&info.wa)WA_NUM=info.wa;}catch(e){}
+  refreshMobileStoreLinks().catch(()=>{});
+  if(SESSION&&SESSION.token){
+    try{
+      const r=await call('me');
+      if(r.ok){SESSION={...SESSION,name:r.name,email:r.email,role:r.role};localStorage.setItem('egga_session',JSON.stringify(SESSION));enter();return;}
+    }catch(e){}
+    SESSION=null;localStorage.removeItem('egga_session');
+  }
+  document.getElementById('appWaAct').href='https://wa.me/'+WA_NUM+'?text='+encodeURIComponent('أطلب كود تفعيل حسابي في تطبيق «خطة منظومة إدارة المخاطر والأزمات».');
+}
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+bootApp();
+</script>
+</body>
+</html>
