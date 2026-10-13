@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>النماذج الرسمية — خطة منظومة إدارة المخاطر والأزمات بالفروع والفرق الإرشادية | risk-crisis-management-plan</title>
+<script src="session.js" defer></script>
+<style>
+:root{
+  --green:#1b5e3b; --green2:#2e8b57; --light:#eaf4ee; --gold:#c9a24b;
+  --red:#b3261e; --border:#9bb8a6; --ink:#222;
+}
+*{box-sizing:border-box; font-family:"Traditional Arabic","Amiri","Cairo",Tahoma,Arial,sans-serif;}
+body{margin:0;background:#f3f6f4;color:var(--ink);}
+header{background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;padding:18px 24px;display:flex;align-items:center;gap:16px;box-shadow:0 2px 8px rgba(0,0,0,.15);flex-wrap:wrap;}
+header .logo{width:64px;height:64px;border-radius:50%;background:#fff;border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;font-weight:bold;color:var(--green);font-size:13px;text-align:center;}
+header h1{margin:0;font-size:22px;}
+header p{margin:2px 0 0;font-size:14px;opacity:.9;}
+.tabs{display:flex;gap:6px;padding:10px 16px;background:#fff;flex-wrap:wrap;border-bottom:3px solid var(--green);position:sticky;top:0;z-index:10;}
+.tabs button{border:1px solid var(--border);background:var(--light);color:var(--green);padding:9px 16px;border-radius:8px 8px 0 0;cursor:pointer;font-size:15px;font-weight:bold;transition:.2s;}
+.tabs button.active{background:var(--green);color:#fff;border-color:var(--green);}
+main{max-width:960px;margin:20px auto;padding:0 14px 60px;}
+section{display:none;background:#fff;border:2px solid var(--green);border-radius:12px;padding:24px;box-shadow:0 3px 10px rgba(0,0,0,.06);}
+section.active{display:block;}
+h2.form-title{text-align:center;color:var(--green);border-bottom:3px double var(--green);padding-bottom:8px;margin:0 0 20px;font-size:21px;}
+h3{color:var(--red);font-size:17px;margin:22px 0 8px;border-right:4px solid var(--red);padding-right:8px;}
+label{display:block;font-weight:bold;margin:10px 0 4px;color:var(--green);}
+input[type=text],input[type=date],input[type=number],input[type=tel],select,textarea{
+  width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:8px;font-size:15px;background:#fbfdfc;}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--green2);border-color:var(--green2);}
+textarea{min-height:70px;resize:vertical;}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 24px;}
+@media(max-width:640px){.row,.row3{grid-template-columns:1fr;}}
+/* check tables */
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:15px;}
+th{background:var(--light);color:var(--green);border:1px solid var(--border);padding:8px;}
+td{border:1px solid var(--border);padding:6px 8px;text-align:center;}
+td.opt{width:60px;}
+td.opt label{margin:0;display:flex;justify-content:center;}
+input[type=checkbox],input[type=radio]{width:19px;height:19px;accent-color:var(--green);cursor:pointer;}
+.dots{border-bottom:2px dotted #777;display:inline-block;min-width:60%;}
+.foot-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:28px;}
+@media(max-width:640px){.foot-grid{grid-template-columns:1fr;}}
+.btn{background:var(--green);color:#fff;border:none;padding:11px 26px;font-size:16px;border-radius:8px;cursor:pointer;font-weight:bold;margin:6px 4px;}
+.btn:hover{background:var(--green2);}
+.btn.gold{background:var(--gold);}
+.actions{text-align:center;margin-top:28px;padding-top:16px;border-top:2px dashed var(--border);}
+.note{background:#fffbe6;border:1px solid var(--gold);border-radius:8px;padding:10px 14px;font-size:14px;margin-top:14px;color:#6b5a1e;}
+.badge{display:inline-block;background:var(--red);color:#fff;font-size:12px;padding:2px 10px;border-radius:12px;vertical-align:middle;margin-right:6px;}
+
+.img-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px;}
+@media(max-width:640px){.img-grid{grid-template-columns:repeat(2,1fr);}}
+.img-slot{position:relative;border:2px dashed var(--border);border-radius:12px;aspect-ratio:4/3;background:var(--light);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;transition:.25s;}
+.img-slot:hover{border-color:var(--green2);transform:translateY(-3px);box-shadow:0 6px 14px rgba(0,0,0,.1);}
+.img-slot img{width:100%;height:calc(100% - 32px);object-fit:cover;position:absolute;top:0;right:0;}
+.img-slot .cap{position:absolute;bottom:0;width:100%;background:rgba(27,94,59,.85);color:#fff;font-size:13px;padding:6px;border:none;text-align:center;}
+.img-slot .plus{font-size:34px;color:var(--green2);}
+.img-slot .lbl{font-size:13px;color:var(--green);font-weight:bold;}
+.img-slot input[type=file]{display:none;}
+@media print{
+  .tabs,.actions{display:none!important;}
+  section{display:block!important;margin:0 0 20px;box-shadow:none;}
+  body{background:#fff;}
+  header{background:var(--green)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+
+/* الوضع الداكن الاحترافي */
+[data-theme="dark"]{--light:#12281e;--border:#3a5a48;--ink:#eaf6ef;}
+[data-theme="dark"] body{background:#081711;}
+[data-theme="dark"] section{background:#0f241a;border-color:#2e8b57;box-shadow:0 3px 14px rgba(0,0,0,.4);}
+[data-theme="dark"] input[type=text],[data-theme="dark"] input[type=date],[data-theme="dark"] input[type=number],[data-theme="dark"] input[type=tel],[data-theme="dark"] select,[data-theme="dark"] textarea{background:#0a1c13;border-color:#3a5a48;color:#eaf6ef;}
+[data-theme="dark"] label{color:#2ee08a;}
+[data-theme="dark"] h2.form-title{color:#2ee08a;border-bottom-color:#2e8b57;}
+[data-theme="dark"] th{background:#12281e;color:#2ee08a;}
+[data-theme="dark"] .tabs{background:#0f241a;}
+[data-theme="dark"] .tabs button{background:#12281e;color:#2ee08a;}
+[data-theme="dark"] .img-slot{background:#12281e;}
+[data-theme="dark"] .img-slot .lbl{color:#8fb3a1;}
+[data-theme="dark"] .note{background:#2a2410;color:#e8c469;}
+/* عارض الصور المكبّر */
+#lightbox{position:fixed;inset:0;background:rgba(4,14,9,.94);z-index:6000;display:none;align-items:center;justify-content:center;cursor:zoom-out;padding:22px;}
+#lightbox img{max-width:94vw;max-height:88vh;border-radius:14px;}
+@media print{#lightbox{display:none!important;}}
+
+@media(min-width:701px){
+  body{font-size:14px;}
+  main{max-width:880px;margin:14px auto;}
+  section{padding:18px;}
+  h2.form-title{font-size:19px;margin:0 0 14px;}
+  h3{font-size:15.5px;margin:14px 0 6px;}
+  input[type=text],input[type=date],input[type=number],input[type=tel],select,textarea{padding:7px 10px;font-size:13.5px;}
+  textarea{min-height:56px;}
+  table{font-size:13.5px;} th{padding:6px;} td{padding:5px 6px;}
+  header{padding:12px 18px;} header h1{font-size:19px;} header p{font-size:12.5px;}
+  header .logo{width:52px;height:52px;font-size:11px;}
+  .btn{padding:9px 22px;font-size:14px;}
+  label{margin:7px 0 3px;font-size:13px;}
+  .foot-grid{margin-top:18px;}
+  .img-slot{aspect-ratio:16/10;}
+}
+
+/* شريط الإعلانات المتحرك */
+.ticker{display:none;position:relative;overflow:hidden;background:linear-gradient(90deg,#1b5e3b,#0e9e56,#1b5e3b);color:#fff;
+  border-radius:12px;border:1px solid rgba(232,196,105,.5);margin-bottom:14px;min-height:42px;box-shadow:0 6px 18px rgba(27,94,59,.25);}
+.ticker.on{display:block;}
+.ticker .t-lbl{position:absolute;top:0;right:0;bottom:0;z-index:3;display:flex;align-items:center;padding:0 14px;font-weight:900;font-size:12.5px;
+  background:linear-gradient(90deg,#e8c469,#c9a24b);color:#062015;border-radius:0 12px 12px 0;}
+.ticker .t-track{display:flex;align-items:center;gap:48px;white-space:nowrap;padding:11px 0;animation:tick 26s linear infinite;will-change:transform;}
+.ticker:hover .t-track{animation-play-state:paused;}
+.ticker .t-item{font-size:13.5px;font-weight:bold;color:#fff;text-decoration:none;}
+.ticker .t-item::before{content:"📢 ";}
+.ticker a.t-item{text-decoration:underline;text-underline-offset:3px;}
+@keyframes tick{from{transform:translateX(-100%)}to{transform:translateX(100vw)}}
+[data-theme="light"] .ticker{background:linear-gradient(90deg,#0e7a48,#1b9e5f,#0e7a48);}
+
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<header>
+  <div class="logo">EGGA<br>1913</div>
+  <div>
+    <h1>النماذج الرسمية لإدارة المخاطر والأزمات <span class="badge">جمعية المرشدات المصرية — Be Prepared</span></h1>
+    <p>risk-crisis-management-plan • املأ النموذج واطبعه بالبيانات المستكملة — احترافي وجاهز للاعتماد</p>
+  </div>
+<div style="margin-inline-start:auto;display:flex;gap:8px;align-items:center;">
+    <button type="button" class="themeBtn" onclick="toggleTheme()" style="border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.15);color:#fff;border-radius:10px;padding:8px 16px;cursor:pointer;font-weight:bold;font-size:13px;min-height:44px;">🌙 داكن</button>
+    <a href="index.html" target="_self" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.5);color:#fff;border-radius:10px;padding:8px 16px;text-decoration:none;font-weight:bold;font-size:13px;display:inline-flex;align-items:center;min-height:44px;">← المنصة</a>
+  </div>
+</header>
+
+<div class="ticker" id="ticker"><span class="t-lbl">إعلانات</span><div class="t-track" id="tickerTrack"></div></div>
+
+<nav class="tabs">
+  <button class="active" onclick="showTab(0,this)">استمارة تقييم نشاط</button>
+  <button onclick="showTab(1,this)">استمارة متابعة لجنة</button>
+  <button onclick="showTab(2,this)">التقرير الشهري</button>
+  <button onclick="showTab(3,this)">نموذج الإبلاغ عن مخاطر</button>
+  <button onclick="showTab(4,this)">سجل المخاطر</button>
+</nav>
+
+<main>
+
+<!-- ============ 1. استمارة تقييم نشاط ============ -->
+<section class="active">
+  <h2 class="form-title">استمارة تقييم نشاط (إدارة المخاطر)</h2>
+  <div class="row">
+    <div><label>اسم النشاط:</label><input type="text" placeholder="................................"></div>
+    <div><label>الفرقة / المرحلة:</label><input type="text"></div>
+    <div><label>المحافظة:</label><input type="text"></div>
+    <div><label>التاريخ:</label><input type="date"></div>
+  </div>
+
+  <h3>مسئولة النشاط</h3>
+  <table>
+    <tr><th>البند</th><th>نعم</th><th>لا</th><th>إلى حد ما</th></tr>
+    <tr><td>تقييم إدارة المخاطر داخل النشاط</td><td class="opt"><label><input type="radio" name="q1"></label></td><td class="opt"><label><input type="radio" name="q1"></label></td><td class="opt"><label><input type="radio" name="q1"></label></td></tr>
+  </table>
+  <h3>البند</h3>
+  <table>
+    <tr><th>البند</th><th>نعم</th><th>لا</th><th>إلى حد ما</th></tr>
+    <tr><td>تم تحديد المخاطر قبل النشاط</td><td class="opt"><input type="radio" name="b1"></td><td class="opt"><input type="radio" name="b1"></td><td class="opt"><input type="radio" name="b1"></td></tr>
+    <tr><td>تم تعيين مسئولة للسلامة</td><td class="opt"><input type="radio" name="b2"></td><td class="opt"><input type="radio" name="b2"></td><td class="opt"><input type="radio" name="b2"></td></tr>
+    <tr><td>وجود خطة طوارئ واضحة</td><td class="opt"><input type="radio" name="b3"></td><td class="opt"><input type="radio" name="b3"></td><td class="opt"><input type="radio" name="b3"></td></tr>
+    <tr><td>تم توعية المشاركات بالمخاطر</td><td class="opt"><input type="radio" name="b4"></td><td class="opt"><input type="radio" name="b4"></td><td class="opt"><input type="radio" name="b4"></td></tr>
+    <tr><td>تم التعامل مع المواقف بشكل صحيح</td><td class="opt"><input type="radio" name="b5"></td><td class="opt"><input type="radio" name="b5"></td><td class="opt"><input type="radio" name="b5"></td></tr>
+  </table>
+  <label>ملاحظات:</label>
+  <textarea rows="3"></textarea>
+  <h3>التقييم العام</h3>
+  <table>
+    <tr><td><input type="radio" name="gen"> ممتازة</td><td><input type="radio" name="gen"> جيدة جدًا</td><td><input type="radio" name="gen"> جيدة</td><td><input type="radio" name="gen"> تحتاج تحسين</td></tr>
+  </table>
+  <div class="foot-grid">
+    <div><label>اسم المقيّمة:</label><input type="text"></div>
+    <div><label>التوقيع:</label><input type="text"></div>
+    <div><label>التاريخ:</label><input type="date"></div>
+  </div>
+  <div class="actions"><button class="btn" onclick="window.print()">🖨️ طباعة / حفظ PDF</button></div>
+</section>
+
+<!-- ============ 2. استمارة متابعة لجنة ============ -->
+<section>
+  <h2 class="form-title">استمارة متابعة اللجنة (شهري)</h2>
+  <div class="row3">
+    <div><label>المحافظة:</label><input type="text"></div>
+    <div><label>الشهر:</label><input type="text" placeholder="مثال: أكتوبر 2026"></div>
+    <div><label>اسم المنسقة:</label><input type="text"></div>
+  </div>
+  <h3>تنفيذ الخطة</h3>
+  <table>
+    <tr><th>البند</th><th>تم</th><th>لم يتم</th></tr>
+    <tr><td>عقد اجتماع اللجنة</td><td class="opt"><input type="radio" name="m1"></td><td class="opt"><input type="radio" name="m1"></td></tr>
+    <tr><td>تنفيذ تدريب</td><td class="opt"><input type="radio" name="m2"></td><td class="opt"><input type="radio" name="m2"></td></tr>
+    <tr><td>متابعة الأنشطة</td><td class="opt"><input type="radio" name="m3"></td><td class="opt"><input type="radio" name="m3"></td></tr>
+    <tr><td>تطبيق إدارة المخاطر في الأنشطة</td><td class="opt"><input type="radio" name="m4"></td><td class="opt"><input type="radio" name="m4"></td></tr>
+  </table>
+  <h3>الأداء</h3>
+  <table>
+    <tr><th>البند</th><th>ممتازة</th><th>جيدة</th><th>ضعيفة</th></tr>
+    <tr><td>التزام الأعضاء</td><td class="opt"><input type="radio" name="p1"></td><td class="opt"><input type="radio" name="p1"></td><td class="opt"><input type="radio" name="p1"></td></tr>
+    <tr><td>تنفيذ المهام</td><td class="opt"><input type="radio" name="p2"></td><td class="opt"><input type="radio" name="p2"></td><td class="opt"><input type="radio" name="p2"></td></tr>
+    <tr><td>التواصل داخل الفريق</td><td class="opt"><input type="radio" name="p3"></td><td class="opt"><input type="radio" name="p3"></td><td class="opt"><input type="radio" name="p3"></td></tr>
+  </table>
+  <label>التحديات:</label><textarea rows="3"></textarea>
+  <label>المقترحات:</label><textarea rows="3"></textarea>
+  <div class="actions"><button class="btn" onclick="window.print()">🖨️ طباعة / حفظ PDF</button></div>
+</section>
+
+<!-- ============ 3. التقرير الشهري ============ -->
+<section>
+  <h2 class="form-title">نموذج تقرير شهري للمحافظة</h2>
+  <div class="row">
+    <div><label>المحافظة:</label><input type="text"></div>
+    <div><label>الشهر:</label><input type="text" placeholder="مثال: أكتوبر 2026"></div>
+  </div>
+  <h3>أولًا: الأنشطة المنفذة</h3>
+  <div class="row">
+    <div><label>عدد الأنشطة:</label><input type="number" min="0"></div>
+    <div><label>نوع الأنشطة:</label><input type="text"></div>
+  </div>
+  <h3>ثانيًا: تطبيق إدارة المخاطر</h3>
+  <label>هل تم تطبيقها؟ (نعم / جزئي / لا)</label>
+  <table><tr><td><input type="radio" name="risk"> نعم</td><td><input type="radio" name="risk"> جزئي</td><td><input type="radio" name="risk"> لا</td></tr></table>
+  <label>أمثلة:</label><textarea rows="2"></textarea>
+  <h3>ثالثًا: التدريبات</h3>
+  <div class="row">
+    <div><label>عدد التدريبات:</label><input type="number" min="0"></div>
+    <div><label>عدد المستفيدات:</label><input type="number" min="0"></div>
+  </div>
+  <h3>رابعًا: الشارات</h3>
+  <div class="row">
+    <div><label>عدد الحاصلات على شارة إدارة الأزمات:</label><input type="number" min="0"></div>
+    <div><label>عدد الحاصلات على شارة التكنولوجيا:</label><input type="number" min="0"></div>
+  </div>
+  <h3>خامسًا: أهم الإنجازات</h3><textarea rows="3"></textarea>
+  <h3>سادسًا: التحديات</h3><textarea rows="3"></textarea>
+  <h3>سابعًا: التوصيات</h3><textarea rows="3"></textarea>
+
+  <h3>صور ما تم تنفيذه <span style="font-size:12px;color:#666;font-weight:normal;">(تبدأ بخانتين وتزيد حتى 20 صورة — اضغط على الصورة للتكبير — تُطبع داخل التقرير)</span></h3>
+  <div class="img-grid" id="imgGrid"></div>
+  <p style="text-align:center;margin-top:12px;"><button class="btn gold" onclick="addSlot()">➕ إضافة خانة صورة <span id="slotCount" style="font-size:12px;">2 / 20</span></button></p>
+
+  <div class="row3">
+    <div><label>اسم المنسقة:</label><input type="text"></div>
+    <div><label>التوقيع:</label><input type="text"></div>
+    <div><label>التاريخ:</label><input type="date"></div>
+  </div>
+  <div class="actions"><button class="btn" onclick="window.print()">🖨️ طباعة / حفظ PDF</button></div>
+</section>
+
+<!-- ============ 4. نموذج الإبلاغ عن مخاطر ============ -->
+<section>
+  <h2 class="form-title">نموذج موحد للإبلاغ عن المخاطر</h2>
+  <p style="text-align:center;color:var(--green);font-weight:bold;">لجنة إدارة المخاطر – جمعية المرشدات المصرية</p>
+  <h3>أولًا: بيانات المُبلِّغ</h3>
+  <div class="row">
+    <div><label>اسم الفرع:</label><input type="text"></div>
+    <div><label>اسم مسئول الفرع:</label><input type="text"></div>
+    <div><label>الوظيفة:</label><input type="text"></div>
+    <div><label>تاريخ الإبلاغ:</label><input type="date"></div>
+    <div><label>وسيلة التواصل:</label><input type="tel"></div>
+  </div>
+  <h3>ثانيًا: بيانات الخطر</h3>
+  <div class="row">
+    <div><label>تاريخ حدوث / اكتشاف الخطر:</label><input type="date"></div>
+    <div><label>مكان حدوث الخطر:</label><input type="text"></div>
+  </div>
+  <label>نوع الخطر:</label>
+  <table><tr>
+    <td><input type="checkbox"> تشغيلي</td><td><input type="checkbox"> مالي</td>
+    <td><input type="checkbox"> صحة</td><td><input type="checkbox"> قانوني</td>
+    <td><input type="checkbox"> سمعة</td><td><input type="checkbox"> تقني</td>
+    <td><input type="checkbox"> آخر</td>
+  </tr></table>
+  <h3>ثالثًا: وصف الخطر</h3><textarea rows="3"></textarea>
+  <h3>رابعًا: حالة الخطر</h3>
+  <table><tr><td><input type="radio" name="st"> حدث بالفعل</td><td><input type="radio" name="st"> محتمل الحدوث</td></tr></table>
+  <h3>خامسًا: الآثار المترتبة</h3><textarea rows="3"></textarea>
+  <h3>سادسًا: الإجراءات التي تم اتخاذها</h3><textarea rows="3"></textarea>
+  <h3>سابعًا: التوصيات والإجراءات المقترحة</h3><textarea rows="3"></textarea>
+  <h3>ثامنًا: تقييم مستوى الخطورة</h3>
+  <table><tr><td><input type="radio" name="sev"> منخفض</td><td><input type="radio" name="sev"> متوسط</td><td><input type="radio" name="sev"> مرتفع</td><td><input type="radio" name="sev"> حرج</td></tr></table>
+  <label>يتطلب تدخلًا عاجلًا؟</label>
+  <table><tr><td><input type="radio" name="urg"> نعم</td><td><input type="radio" name="urg"> لا</td></tr></table>
+  <h3>تاسعًا: المرفقات</h3><textarea rows="2" placeholder="اذكري أسماء المرفقات إن وجدت"></textarea>
+  <div class="foot-grid">
+    <div><label>اسم وتوقيع مسئول القطاع:</label><input type="text"></div>
+  </div>
+  <div class="actions"><button class="btn" onclick="window.print()">🖨️ طباعة / حفظ PDF</button></div>
+</section>
+
+<!-- ============ 5. سجل المخاطر ============ -->
+<section>
+  <h2 class="form-title">نموذج سجل مخاطر إرشادي</h2>
+  <div class="note">🛈 متوافق مع معايير المنظمة العالمية للحركة الإرشادية (WOSM) ومبادئ Safe from Harm ومعيار ISO 31000 — درجة الخطر = الاحتمالية × الأثر</div>
+  <h3>أولًا: سياق المخاطر</h3>
+  <div class="row">
+    <div><label>أهداف النشاط:</label><input type="text"></div>
+    <div><label>نوع النشاط:</label>
+      <select><option>معسكر</option><option>رحلة</option><option>تدريب</option><option>خدمة عامة</option><option>احتفال</option><option>نشاط إلكتروني</option></select>
+    </div>
+    <div><label>موقع التنفيذ:</label>
+      <select><option>مغلق</option><option>مفتوح</option><option>ساحلي</option><option>جبلي</option><option>حضري</option><option>ريفي</option></select>
+    </div>
+    <div><label>الظروف المتوقعة:</label><input type="text" placeholder="حرارة مرتفعة / أمطار / رياح / ازدحام"></div>
+  </div>
+  <h3>ثانيًا: سجل المخاطر</h3>
+  <table id="riskTable">
+    <tr><th>رقم الخطر</th><th>وصف الخطر</th><th>الاحتمالية (1-5)</th><th>الأثر (1-5)</th><th>درجة الخطر</th><th>مستوى التقبل</th><th>إجراءات المعالجة</th><th>المسئول</th></tr>
+    <tr>
+      <td><input type="text" style="width:70px" placeholder="R01"></td>
+      <td><input type="text"></td>
+      <td><input type="number" min="1" max="5" class="prob" style="width:70px"></td>
+      <td><input type="number" min="1" max="5" class="imp" style="width:70px"></td>
+      <td class="score" style="font-weight:bold;color:var(--red)">—</td>
+      <td><select><option>منخفض (1-4)</option><option>متوسط (5-9)</option><option>مرتفع (10-16)</option><option>حرج (17-25)</option></select></td>
+      <td><input type="text"></td>
+      <td><input type="text" style="width:110px"></td>
+    </tr>
+  </table>
+  <p style="text-align:center;margin-top:10px;"><button class="btn gold" onclick="addRiskRow()">➕ إضافة خطر جديد</button></p>
+  <h3>خامسًا: سجل مخاطر الحماية (Safe from Harm)</h3>
+  <table>
+    <tr><th>رقم</th><th>خطر الحماية</th><th>مستوى الخطورة</th><th>الإجراءات الوقائية</th><th>المسئول</th></tr>
+    <tr><td>1</td><td>التنمر</td><td><select><option>منخفض</option><option selected>متوسط</option><option>مرتفع</option><option>حرج</option></select></td><td><input type="text" value="سياسة سلوك واضحة وإجراءات إبلاغ"></td><td><input type="text" value="قائدة الفرقة" style="width:110px"></td></tr>
+    <tr><td>2</td><td>الإساءة الجسدية أو النفسية</td><td><select><option>منخفض</option><option>متوسط</option><option selected>مرتفع</option><option>حرج</option></select></td><td><input type="text" value="تطبيق سياسة الحماية والرقابة المناسبة"></td><td><input type="text" value="مسئول الحماية" style="width:110px"></td></tr>
+    <tr><td>3</td><td>التحرش</td><td><select><option>منخفض</option><option>متوسط</option><option selected>مرتفع</option><option>حرج</option></select></td><td><input type="text" value="وجود قادة مؤهلين وآلية شكاوى"></td><td><input type="text" value="لجنة الحماية" style="width:110px"></td></tr>
+    <tr><td>4</td><td>الاستخدام غير الآمن للإنترنت</td><td><select><option>منخفض</option><option selected>متوسط</option><option>مرتفع</option><option>حرج</option></select></td><td><input type="text" value="التوعية بالأمن الرقمي"></td><td><input type="text" value="مسئول النشاط" style="width:110px"></td></tr>
+    <tr><td>5</td><td>التمييز أو الإقصاء</td><td><select><option>منخفض</option><option selected>متوسط</option><option>مرتفع</option><option>حرج</option></select></td><td><input type="text" value="تعزيز الشمول واحترام التنوع"></td><td><input type="text" value="القيادة" style="width:110px"></td></tr>
+    <tr><td>6</td><td>الإفصاح عن موقف حساس</td><td><select><option>منخفض</option><option>متوسط</option><option selected>مرتفع</option><option>حرج</option></select></td><td><input type="text" value="تدريب القادة على الاستماع والإحالة"></td><td><input type="text" value="مسؤول الحماية" style="width:110px"></td></tr>
+    <tr><td>7</td><td>مشاركة صور أو بيانات دون موافقة</td><td><select><option>منخفض</option><option>متوسط</option><option selected>مرتفع</option><option>حرج</option></select></td><td><input type="text" value="سياسة خصوصية واضحة"></td><td><input type="text" value="مسؤول الإعلام" style="width:110px"></td></tr>
+    <tr><td>8</td><td>التواصل الفردي غير المنضبط عبر المنصات</td><td><select><option>منخفض</option><option>متوسط</option><option selected>مرتفع</option><option>حرج</option></select></td><td><input type="text" value="الالتزام بمدونة السلوك الرقمية"></td><td><input type="text" value="القادة والمشرفون" style="width:110px"></td></tr>
+    <tr><td>9</td><td>إهمال أثناء الأنشطة</td><td><select><option>منخفض</option><option selected>متوسط</option><option>مرتفع</option><option>حرج</option></select></td><td><input type="text" value="الإشراف المستمر وتحديد نسب الإشراف"></td><td><input type="text" value="قائد النشاط" style="width:110px"></td></tr>
+    <tr><td>10</td><td>فقدان أحد المشاركين</td><td><select><option>منخفض</option><option>متوسط</option><option selected>مرتفع</option><option>حرج</option></select></td><td><input type="text" value="إجراءات الحضور والانصراف وخطة التجمع"></td><td><input type="text" value="مسئول الأمن" style="width:110px"></td></tr>
+  </table>
+  <div class="note">⚠️ في حالة الإفصاح عن أي موقف يتعلق بالحماية، يجب اتباع إجراءات الحماية المعتمدة وعدم إجراء تحقيق فردي، مع إحالة الحالة إلى المسئول المختص وفق السياسات المعتمدة.</div>
+  <div class="foot-grid">
+    <div><label>إعداد (اسم / توقيع / تاريخ):</label><input type="text"></div>
+    <div><label>مراجعة (اسم / توقيع / تاريخ):</label><input type="text"></div>
+    <div><label>اعتماد (اسم / توقيع / تاريخ):</label><input type="text"></div>
+  </div>
+  <div class="actions"><button class="btn" onclick="window.print()">🖨️ طباعة / حفظ PDF</button></div>
+</section>
+
+</main>
+
+<script>
+function showTab(i,btn){
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('section')[i].classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function addRiskRow(){
+  const t=document.getElementById('riskTable');
+  const r=t.rows[1].cloneNode(true);
+  r.querySelector('.score').textContent='—';
+  r.querySelectorAll('input').forEach(inp=>{inp.value='';});
+  t.appendChild(r);
+}
+document.addEventListener('input',e=>{
+  if(e.target.classList.contains('prob')||e.target.classList.contains('imp')){
+    const row=e.target.closest('tr');
+    const p=parseFloat(row.querySelector('.prob').value)||0;
+    const im=parseFloat(row.querySelector('.imp').value)||0;
+    const s=p*im;
+    const cell=row.querySelector('.score');
+    cell.textContent=(p&&im)?s:'—';
+    cell.style.color = s>=17?'#b3261e':(s>=10?'#d97706':(s>=5?'#2e8b57':'#1b5e3b'));
+  }
+});
+
+// معرض صور احترافي — يبدأ بخانتين ويزيد حتى 20 صورة مع عارض مكبّر
+const MAX_SLOTS=20;let slots=0;
+function openLightbox(src,cap){
+  let lb=document.getElementById('lightbox');
+  if(!lb){lb=document.createElement('div');lb.id='lightbox';lb.onclick=()=>lb.style.display='none';
+    lb.innerHTML='<img alt="معاينة">';document.body.appendChild(lb);}
+  lb.querySelector('img').src=src;lb.style.display='flex';
+}
+function addSlot(){
+  if(slots>=MAX_SLOTS)return alert('الحد الأقصى 20 صورة');
+  slots++;const i=slots;
+  const grid=document.getElementById('imgGrid');
+  const slot=document.createElement('label');slot.className='img-slot';slot.id='fslot'+i;
+  slot.innerHTML=`<span class="plus">📷</span><span class="lbl">إضافة صورة ${i}</span><input type="file" accept="image/*">`;
+  slot.querySelector('input').addEventListener('change',function(){
+    const file=this.files[0];if(!file)return;
+    const rd=new FileReader();
+    rd.onload=ev=>{
+      slot.innerHTML=`<img src="${ev.target.result}" style="cursor:zoom-in;" onclick="event.preventDefault();openLightbox('${ev.target.result}')"><input class="cap" placeholder="وصف الصورة ${i}..." onclick="event.preventDefault();"><input type="file" accept="image/*" style="display:none">`;
+      slot.querySelector('.cap').addEventListener('input',e=>e.target.setAttribute('value',e.target.value));
+      slot.querySelector('input[type=file]').addEventListener('change',function(){
+        const f2=this.files[0];if(!f2)return;const r2=new FileReader();
+        r2.onload=ev2=>{slot.querySelector('img').src=ev2.target.result;};
+        r2.readAsDataURL(f2);
+      });
+    };
+    rd.readAsDataURL(file);
+  });
+  grid.appendChild(slot);
+  document.getElementById('slotCount').textContent=slots+' / '+MAX_SLOTS;
+}
+for(let i=0;i<2;i++)addSlot();
+
+// الوضع الفاتح/الداكن — الفاتح أساسي
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('rcmp_theme',t);
+  document.querySelectorAll('.themeBtn').forEach(b=>b.textContent=t==='light'?'🌙 داكن':'☀️ فاتح');}
+function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='light'?'dark':'light');}
+applyTheme(localStorage.getItem('rcmp_theme')||'light');
+// اسم ملف PDF عند الطباعة يحمل التاريخ والوقت
+const API='api/index.php';
+async function call(action,data={}){
+  try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,...data})});return await r.json();}
+  catch(e){return{ok:false};}
+}
+const esc=s2=>String(s2??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+/* شريط الإعلانات — يُجلب من الخادم */
+async function loadTicker(){
+  try{
+    const r=await call('announce_get');
+    const items=(r.ok&&r.items)||[];
+    const tk=document.getElementById('ticker');if(!tk)return;
+    if(!items.length){tk.classList.remove('on');return;}
+    const html=items.map(it=>it.url
+      ?`<a class="t-item" target="_blank" rel="noopener" href="${esc(it.url)}">${esc(it.text)}</a>`
+      :`<span class="t-item">${esc(it.text)}</span>`).join('');
+    document.getElementById('tickerTrack').innerHTML=html+html; /* نسختان لاستمرارية اللف */
+    tk.classList.add('on');
+  }catch(e){}
+}
+loadTicker();
+window.addEventListener('beforeprint',()=>{
+  const d=new Date(),p=n=>String(n).padStart(2,'0');
+  document.title=`نموذج_إدارة_المخاطر_${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}_${p(d.getHours())}-${p(d.getMinutes())}`;
+});
+</script>
+</body>
+</html>
