@@ -1,8 +1,0 @@
-# حماية ملفات الإعدادات والقاعدة من الوصول المباشر
-<FilesMatch "\.(sql|md|log)$">
-  Require all denied
-</FilesMatch>
-
-<FilesMatch "^config\.php$">
-  Require all denied
-</FilesMatch>
