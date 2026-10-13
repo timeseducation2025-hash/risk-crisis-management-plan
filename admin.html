@@ -13,70 +13,127 @@ h1{font-size:20px;color:var(--gold);margin-bottom:4px;}
 .sub{font-size:12.5px;color:var(--muted);margin-bottom:18px;}
 .panel{background:var(--card);border:1px solid rgba(46,224,138,.25);border-radius:18px;padding:20px;margin-bottom:18px;backdrop-filter:blur(10px);}
 .panel h2{color:var(--gold);font-size:15.5px;margin-bottom:12px;border-bottom:1px solid rgba(232,196,105,.3);padding-bottom:8px;}
-.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:18px;}
-@media(max-width:900px){.kpis{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:560px){.kpis{grid-template-columns:repeat(2,1fr);}}
-.kpi{background:rgba(255,255,255,.05);border:1px solid rgba(46,224,138,.3);border-radius:14px;padding:14px;text-align:center;}
-.kpi b{display:block;font-size:26px;color:var(--green);}
-.kpi span{font-size:12px;color:var(--muted);}
 label{display:block;font-size:13px;color:var(--green);font-weight:bold;margin:10px 0 4px;}
 input,select{width:100%;padding:11px;border-radius:10px;border:1px solid rgba(46,224,138,.4);background:rgba(0,0,0,.35);color:var(--ink);font-size:14px;min-height:44px;}
 input:focus,select:focus{outline:2px solid var(--green);}
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end;}
 .row>div{flex:1;min-width:150px;}
-.btn{background:linear-gradient(135deg,var(--green),#0f9d58);border:none;color:#062015;font-weight:900;font-size:14px;padding:12px 22px;border-radius:11px;cursor:pointer;margin-top:10px;min-height:44px;}
+.btn{background:linear-gradient(135deg,var(--green),#0f9d58);border:none;color:#062015;font-weight:900;font-size:14px;padding:12px 22px;border-radius:11px;cursor:pointer;margin-top:10px;min-height:44px;text-decoration:none;display:inline-block;text-align:center;}
 .btn.blue{background:linear-gradient(135deg,var(--blue),#1a6da8);color:#fff;}
 .btn.red{background:linear-gradient(135deg,var(--red),#b3261e);color:#fff;}
-.btn.wa{background:rgba(37,211,102,.15);border:1px solid #25D366;color:#25D366;}
 .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
 table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:10px;min-width:640px;}
 th{color:var(--gold);border-bottom:1px solid rgba(232,196,105,.4);padding:8px;white-space:nowrap;}
 td{padding:8px;border-bottom:1px solid rgba(255,255,255,.08);text-align:center;}
 td.ltr{direction:ltr;}
-code.code{color:var(--gold);font-weight:900;letter-spacing:2px;font-size:14px;direction:ltr;display:inline-block;}
-#loginBox{max-width:430px;margin:6vh auto 0;position:relative;}
-.toast{position:fixed;bottom:18px;right:18px;background:rgba(6,19,13,.95);border:1px solid var(--green);color:var(--green);padding:12px 20px;border-radius:12px;font-weight:bold;font-size:14px;display:none;z-index:99;}
-.warn{background:rgba(255,184,77,.08);border:1px dashed rgba(255,184,77,.4);color:#ffb84d;border-radius:10px;padding:10px;font-size:12.5px;margin-top:12px;}
-.role-tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11.5px;font-weight:bold;}
-.r-owner{background:rgba(232,196,105,.2);color:var(--gold);border:1px solid var(--gold);}
-.r-admin{background:rgba(77,184,255,.15);color:var(--blue);border:1px solid var(--blue);}
-.r-supervisor{background:rgba(185,138,255,.15);color:#b98aff;border:1px solid #b98aff;}
-.r-user{background:rgba(46,224,138,.12);color:var(--green);border:1px solid var(--green);}
-/* الوضع الفاتح */
 [data-theme="light"]{--ink:#13271c;--muted:#4f6b5b;--green:#0e9e56;--gold:#8a6d1f;--red:#b3261e;--blue:#1a6da8;--card:#fff;}
 [data-theme="light"] body{background:radial-gradient(1000px 600px at 80% 0%,#d9efe3 0%,transparent 60%),linear-gradient(160deg,#f6faf7,#e9f2ec);}
-[data-theme="light"] .panel,[data-theme="light"] .kpi{background:#fff;border-color:#cfe0d6;box-shadow:0 8px 24px rgba(27,94,59,.08);}
+[data-theme="light"] .panel{background:#fff;border-color:#cfe0d6;}
 [data-theme="light"] input,[data-theme="light"] select{background:#fbfdfc;border-color:#9bb8a6;color:#13271c;}
-[data-theme="light"] td{border-color:#e0ece5;}
-[data-theme="light"] .toast{background:#fff;color:#0e9e56;}
 .themeBtn{border:1px solid rgba(46,224,138,.4);background:rgba(255,255,255,.05);color:var(--green);border-radius:10px;padding:8px 16px;cursor:pointer;font-weight:bold;font-size:13px;}
-@media print{body{background:#fff;color:#000;}.panel{border:1px solid #999;}}
-
-@media(min-width:701px){
-  body{padding:14px;}
-  .panel{padding:16px;margin-bottom:14px;}
-  .kpi{padding:10px;} .kpi b{font-size:22px;} .kpi span{font-size:11px;}
-  input,select{padding:8px;min-height:38px;font-size:13.5px;}
-  .btn{padding:9px 18px;min-height:38px;font-size:13px;}
-  table{font-size:12px;} th,td{padding:6px;}
-  h1{font-size:18px;}
-  #loginBox{margin:4vh auto 0;padding:18px;}
-  #loginBox img{width:70px;height:70px;}
-}
 </style>
 </head>
 <body>
 
-<div id="loginBox" class="panel" style="text-align:center;">
-  <button type="button" class="themeBtn" style="position:absolute;top:14px;left:14px;" onclick="toggleTheme()">🌙 داكن</button>
-  <h1>لوحة الإدارة</h1>
-  <p class="sub">منظومة إدارة المخاطر والأزمات</p>
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+  <div>
+    <h1>لوحة الإدارة — خطة منظومة إدارة المخاطر والأزمات</h1>
+    <p class="sub">إدارة وتشغيل المنظومة ودعوة المستخدمين بكود التفعيل</p>
+  </div>
+  <div style="display:flex; gap:8px; align-items:center;">
+    <a href="index.html" class="btn blue" style="margin:0; padding:8px 16px; font-size:13px;">← العودة للمنصة الرئيسية</a>
+    <button type="button" class="themeBtn" onclick="toggleTheme()">🌙 داكن / فاتح</button>
+  </div>
 </div>
 
-<!-- قسم إدارة صلاحيات مشرفي ومتابعي المتاجر -->
+<!-- قسم إرسال دعوة على الإيميل بكود التفعيل -->
+<div class="panel">
+  <h2>✉️ إرسال دعوة انضمام مع كود التفعيل عبر البريد الإلكتروني</h2>
+  <p class="sub">أدخل بريد المستخدم وحدد الرتبة لتوليد كود التفعيل وإرساله فوراً:</p>
+  <div class="row">
+    <div>
+      <label>البريد الإلكتروني:</label>
+      <input type="email" id="inviteEmail" placeholder="example@domain.com" dir="ltr">
+    </div>
+    <div>
+      <label>الاسم (اختياري):</label>
+      <input type="text" id="inviteName" placeholder="اسم المدعو">
+    </div>
+    <div>
+      <label>الرتبة / الصلاحية:</label>
+      <select id="inviteRole">
+        <option value="user">مستخدم عادي</option>
+        <option value="supervisor">مشرف منصة</option>
+        <option value="admin">مدير عام</option>
+      </select>
+    </div>
+  </div>
+  <button class="btn blue" onclick="sendEmailInvite()">توليد الكود وإرسال الدعوة بالبريد</button>
+</div>
+
+<!-- 1. تغيير كلمة المرور -->
+<div class="panel">
+  <h2>🔒 تغيير كلمة المرور</h2>
+  <div class="row">
+    <div><label>كلمة المرور الحالية</label><input type="password" id="currPass"></div>
+    <div><label>كلمة المرور الجديدة</label><input type="password" id="newPass"></div>
+    <div><label>تأكيد كلمة المرور الجديدة</label><input type="password" id="confirmPass"></div>
+  </div>
+  <button class="btn" onclick="changePassword()">حفظ كلمة المرور الجديدة</button>
+</div>
+
+<!-- 2. إدارة متجر تحسين الشراء -->
+<div class="panel">
+  <h2>🛒 إدارة متجر تحسين الشراء</h2>
+  <div class="row">
+    <div><label>إظهار المتجر للمستخدمين</label><select id="showStoreOpt"><option value="1">نعم</option><option value="0">لا</option></select></div>
+  </div>
+  <button class="btn" onclick="saveStoreConfig()">حفظ إعدادات المتجر</button>
+</div>
+
+<!-- 3. إدارة متجر فرع صيدليا الشروق -->
+<div class="panel">
+  <h2>🏬 إدارة متجر فرع صيدليا الشروق</h2>
+  <div class="row">
+    <div><label>إظهار متجر الصيدلية للمستخدمين</label><select id="showPharmOpt"><option value="1">نعم</option><option value="0">لا</option></select></div>
+    <div><label>هامش الربح (%)</label><input type="number" id="pharmMargin" value="0"></div>
+    <div><label>الخصم المقدر (%)</label><input type="number" id="pharmDiscount" value="0"></div>
+  </div>
+  <button class="btn" onclick="savePharmConfig()">حفظ الأسعار والخصومات</button>
+</div>
+
+<!-- 4. طلبات العناصر وتسعيرها -->
+<div class="panel">
+  <h2>📋 طلبات العناصر وتسعيرها</h2>
+  <div class="row">
+    <div><label>حالة الطلبات</label><select id="orderStatusFilter"><option value="all">كل الحالات</option><option value="pending">قيد الانتظار</option><option value="approved">مقبول</option></select></div>
+  </div>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>رقم الطلب</th><th>اسم العضو / البيانات</th><th>إجراءات الطلب</th></tr></thead>
+      <tbody id="ordersTbody"><tr><td colspan="3">لا توجد طلبات معروضة حالياً</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 5. السحاب والمحتوى -->
+<div class="panel">
+  <h2>☁️ السحاب والمحتوى</h2>
+  <div class="row">
+    <div><label>المسار</label><input type="text" id="cloudPath" placeholder="حدد المسار"></div>
+    <div><label>السيرفر / ملف الـ JSON</label><input type="text" id="cloudServer"></div>
+    <div><label>حالة الخيار</label><select id="cloudOpt"><option value="1">مفعل</option><option value="0">معطل</option></select></div>
+  </div>
+  <div style="margin-top:10px;">
+    <button class="btn blue" onclick="uploadCloud()">استيراد الحسابات</button>
+    <button class="btn blue" onclick="exportData()">تنزيل السجلات Excel</button>
+    <button class="btn red" onclick="clearData()">تنزيل ملف القوالب Excel</button>
+  </div>
+</div>
+
+<!-- 6. صلاحيات مشرفي ومتابعي المتاجر -->
 <div class="panel">
   <h2>👥 صلاحيات مشرفي ومتابعي المتاجر</h2>
-  <p class="sub">إدارة وتفعيل صلاحيات المشرفين والمتابعين للمتاجر المرتبطة بالمنظومة</p>
   <div class="row">
     <div>
       <label>اختر المشرف / المتابع:</label>
@@ -95,24 +152,86 @@ code.code{color:var(--gold);font-weight:900;letter-spacing:2px;font-size:14px;di
   <button class="btn blue" onclick="saveStorePermissions()">حفظ وتفعيل الصلاحية</button>
 </div>
 
-<!-- قسم المستخدمين الجدد وتوليد كود التفعيل -->
+<!-- 7. المستخدمون المسجلون - توليد كود التفعيل وإرساله واتساب -->
 <div class="panel" id="pendingUsersPanel">
-  <h2>المستخدمون المسجلون - توليد كود التفعيل وإرساله واتساب</h2>
-  <p class="sub">قائمة الحسابات التي تنتظر الاعتماد وتوليد الكود لمرة واحدة:</p>
+  <h2>📱 المستخدمون المسجلون - توليد كود التفعيل وإرساله واتساب</h2>
+  <p class="sub">الحسابات المعلقة التي بانتظار الاعتماد وتوليد كود التفعيل:</p>
   <div class="tblwrap">
     <table>
-      <thead>
-        <tr>
-          <th>اسم المستخدم</th>
-          <th>رقم الهاتف / البريد</th>
-          <th>الإجراء وتوليد الكود</th>
-        </tr>
-      </thead>
-      <tbody id="pendingUsersBody">
-        <tr>
-          <td colspan="3" style="color:var(--muted);">جاري تحميل البيانات...</td>
-        </tr>
-      </tbody>
+      <thead><tr><th>اسم المستخدم</th><th>رقم الهاتف / البريد</th><th>الإجراء وتوليد الكود</th></tr></thead>
+      <tbody id="pendingUsersBody"><tr><td colspan="3">جاري تحميل المستخدمين...</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 8. فريق الإدارة -->
+<div class="panel">
+  <h2>🛡️ فريق الإدارة (إضافة وتعديل وصلاحيات وتفعيل الحسابات)</h2>
+  <div class="row">
+    <div><label>اسم المستخدم / الحساب</label><input type="text" id="adminAccName" placeholder="مثال: admin_user"></div>
+    <div><label>الاسم الكامل</label><input type="text" id="adminRealName" placeholder="اسم المشرف"></div>
+    <div><label>كلمة المرور</label><input type="password" id="adminAccPass" placeholder="******"></div>
+    <div>
+      <label>الرتبة / الصلاحية</label>
+      <select id="adminRole">
+        <option value="supervisor">مشرف المنصة</option>
+        <option value="admin">مدير عام</option>
+      </select>
+    </div>
+  </div>
+  <button class="btn blue" onclick="addAdminMember()">إضافة وترقية المشرف</button>
+</div>
+
+<!-- 9. بانتظار الاعتماد - وسائط وفيديوهات المستخدمين -->
+<div class="panel">
+  <h2>⏳ بانتظار الاعتماد - وسائط وفيديوهات المستخدمين</h2>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>العنوان</th><th>القسم</th><th>الرابط / الملف</th><th>الإجراءات</th></tr></thead>
+      <tbody id="pendingMediaTbody"><tr><td colspan="4">لا توجد وسائط بانتظار الاعتماد حالياً</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 10. شريط الإعلانات المتحرك -->
+<div class="panel">
+  <h2>📢 شريط الإعلانات المتحرك (يظهر أعلى كل الصفحات)</h2>
+  <div class="row">
+    <div><label>نص الإعلان</label><input type="text" id="announcementText" placeholder="اكتب نص الإعلان هنا..."></div>
+    <div><label>رابط المشاركة</label><input type="text" id="announcementLink" placeholder="https://..."></div>
+  </div>
+  <button class="btn" onclick="saveAnnouncement()">حفظ الإعلان</button>
+</div>
+
+<!-- 11. تقارير المستخدمين الموقوفة عن العناصر -->
+<div class="panel">
+  <h2>⚠️ تقارير المستخدمين الموقوفة عن العناصر</h2>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>اسم المستخدم</th><th>سبب الإيقاف</th><th>التاريخ</th><th>الإجراء</th></tr></thead>
+      <tbody id="blockedUsersTbody"><tr><td colspan="4">لا توجد تقارير موقوفة</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 12. أمر أكواد التحميل المولد -->
+<div class="panel">
+  <h2>🔑 أمر أكواد التحميل المولد</h2>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>الكود</th><th>حالة الاستخدام</th><th>تاريخ التوليد</th></tr></thead>
+      <tbody id="genCodesTbody"><tr><td colspan="3">لا توجد أكواد مولدة</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 13. سجل العمليات -->
+<div class="panel">
+  <h2>📜 سجل العمليات</h2>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>المستخدم</th><th>العملية</th><th>التاريخ والوقت</th></tr></thead>
+      <tbody id="logsTbody"><tr><td colspan="3">لا توجد سجلات حالياً</td></tr></tbody>
     </table>
   </div>
 </div>
@@ -131,36 +250,121 @@ document.addEventListener("DOMContentLoaded", function() {
     loadStoreSupervisors();
 });
 
+// دالة إرسال الدعوة عبر البريد الإلكتروني مع توليد كود التفعيل
+async function sendEmailInvite() {
+    const email = document.getElementById('inviteEmail').value.trim();
+    const name = document.getElementById('inviteName').value.trim();
+    const role = document.getElementById('inviteRole').value;
+
+    if (!email) {
+        alert('يرجى كتابة البريد الإلكتروني أولاً.');
+        return;
+    }
+
+    // توليد كود تفعيل عشوائي من 6 أرقام
+    const activationCode = Math.floor(100000 + Math.random() * 900000).toString();
+    const roleMap = { 'user': 'مستخدم عادي', 'supervisor': 'مشرف منصة', 'admin': 'مدير عام' };
+
+    try {
+        const res = await fetch('/api/index.php?action=send_email_invite', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, name: name, role: role, activation_code: activationCode })
+        });
+
+        if (res.ok) {
+            alert(`تم توليد كود التفعيل (${activationCode}) وإرسال دعوة الانضمام برتبة (${roleMap[role]}) بنجاح إلى: ${email}`);
+            document.getElementById('inviteEmail').value = '';
+            document.getElementById('inviteName').value = '';
+        } else {
+            // فتح برنامج البريد كبديل وتضمين كود التفعيل بداخل الرسالة
+            const mailtoSubject = encodeURIComponent("دعوة انضمام وتفعيل حسابك في منظومة إدارة المخاطر");
+            const mailtoBody = encodeURIComponent(`مرحباً ${name || 'العزيز'}،\n\nتمت دعوتك للانضمام إلى منصة إدارة المخاطر والأزمات برتبة: [${roleMap[role]}].\n\n🔑 كود التفعيل الخاص بك للدخول: ${activationCode}\n\nيمكنك الدخول وإكمال التسجيل عبر الرابط التالي:\nhttp://risk-crisis-management-plan.atwebpages.com/index.html`);
+            window.location.href = `mailto:${email}?subject=${mailtoSubject}&body=${mailtoBody}`;
+        }
+    } catch (e) {
+        // Fallback في حالة عدم استجابة السيرفر
+        const mailtoSubject = encodeURIComponent("دعوة انضمام وتفعيل حسابك في منظومة إدارة المخاطر");
+        const mailtoBody = encodeURIComponent(`مرحباً ${name || 'العزيز'}،\n\nتمت دعوتك للانضمام إلى منصة إدارة المخاطر والأزمات برتبة: [${roleMap[role]}].\n\n🔑 كود التفعيل الخاص بك للدخول: ${activationCode}\n\nيمكنك الدخول وإكمال التسجيل عبر الرابط التالي:\nhttp://risk-crisis-management-plan.atwebpages.com/index.html`);
+        window.location.href = `mailto:${email}?subject=${mailtoSubject}&body=${mailtoBody}`;
+    }
+}
+
+// إضافة مستخدم جديد أو رفعه إلى مشرف / مدير
+async function addAdminMember() {
+    const username = document.getElementById('adminAccName').value.trim();
+    const fullname = document.getElementById('adminRealName').value.trim();
+    const password = document.getElementById('adminAccPass').value.trim();
+    const role = document.getElementById('adminRole').value;
+
+    if (!username || !password) {
+        alert('يرجى كتابة اسم المستخدم وكلمة المرور.');
+        return;
+    }
+
+    try {
+        const res = await fetch('/api/index.php?action=add_admin_user', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: username, name: fullname, password: password, role: role })
+        });
+
+        if (res.ok) {
+            alert(`تم إضافة وترقية الحساب (${username}) إلى (${role === 'admin' ? 'مدير عام' : 'مشرف المنصة'}) بنجاح.`);
+            document.getElementById('adminAccName').value = '';
+            document.getElementById('adminRealName').value = '';
+            document.getElementById('adminAccPass').value = '';
+        } else {
+            alert('حدث خطأ أثناء حفظ الحساب في السيرفر.');
+        }
+    } catch (e) {
+        alert('تعذر الاتصال بالسيرفر لإضافة المشرف.');
+    }
+}
+
 // جلب المستخدمين المعلقين
 async function loadPendingUsers() {
     try {
         const res = await fetch('/api/index.php?action=get_pending_users');
-        if (!res.ok) return;
-        const users = await res.json();
+        if(!res.ok) throw new Error('فشل الاستجابة من السيرفر');
+        
+        let users = await res.json();
         const tbody = document.getElementById('pendingUsersBody');
-        if (!tbody) return;
+        if(!tbody) return;
 
-        if (!users || users.length === 0) {
+        if (users && !Array.isArray(users) && users.data) {
+            users = users.data;
+        }
+
+        if(!users || !Array.isArray(users) || users.length === 0) {
             tbody.innerHTML = `<tr><td colspan="3" style="color:var(--muted);">لا يوجد مستخدمون بانتظار التفعيل حالياً.</td></tr>`;
             return;
         }
 
         let html = '';
         users.forEach(u => {
+            const userId = u.id || u.user_id || u.ID || '';
+            const userName = u.name || u.username || u.full_name || 'مستخدم جديد';
+            const userPhone = u.phone || u.mobile || u.whatsapp || u.email || 'غير متوفرة';
+            const rawPhone = u.phone || u.mobile || u.whatsapp || '';
+
             html += `
                 <tr>
-                    <td>${u.name || u.username || 'مستخدم'}</td>
-                    <td class="ltr">${u.phone || u.email || 'غير متوفر'}</td>
+                    <td>${userName}</td>
+                    <td class="ltr">${userPhone}</td>
                     <td>
-                        <button class="btn" style="padding:6px 12px; margin:0; font-size:12px;" onclick="generateAndSendCode('${u.id}', '${u.phone || ''}')">توليد كود التفعيل</button>
-                        <span id="code-display-${u.id}" style="margin-right:8px; color:var(--gold); font-weight:bold;"></span>
+                        <button class="btn" style="padding:6px 12px; margin:0; font-size:12px;" onclick="generateAndSendCode('${userId}', '${rawPhone}')">توليد كود التفعيل</button>
+                        <span id="code-display-${userId}" style="margin-right:8px; color:var(--gold); font-weight:bold;"></span>
                     </td>
                 </tr>
             `;
         });
         tbody.innerHTML = html;
-    } catch (e) {
-        console.error("خطأ في جلب المستخدمين:", e);
+    } catch(e) {
+        const tbody = document.getElementById('pendingUsersBody');
+        if(tbody) {
+            tbody.innerHTML = `<tr><td colspan="3" style="color:var(--red);">تعذر تحميل البيانات من السيرفر.</td></tr>`;
+        }
     }
 }
 
@@ -177,13 +381,13 @@ async function generateAndSendCode(userId, phone) {
         if (res.ok) {
             document.getElementById(`code-display-${userId}`).innerText = `الكود: ${code}`;
             if (phone) {
-                const msg = encodeURIComponent(`مرحباً، كود التفعيل الخاص بك للدخول للمنصة لمرة واحدة هو: ${code}`);
+                const msg = encodeURIComponent(`مرحباً، كود التفعيل الخاص بك لمنصة إدارة المخاطر لمرة واحدة هو: ${code}`);
                 window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
             } else {
                 alert(`تم توليد الكود بنجاح: ${code}`);
             }
         } else {
-            alert('فشل حفظ كود التفعيل في السيرفر.');
+            alert('حدث خطأ أثناء حفظ كود التفعيل.');
         }
     } catch (e) {
         alert('تعذر الاتصال بالسيرفر.');
@@ -202,12 +406,14 @@ async function loadStoreSupervisors() {
         let options = '<option value="">-- اختر المستخدم --</option>';
         if (users && Array.isArray(users)) {
             users.forEach(u => {
-                options += `<option value="${u.id}">${u.name || u.username}</option>`;
+                const uId = u.id || u.user_id || '';
+                const uName = u.name || u.username || '';
+                options += `<option value="${uId}">${uName}</option>`;
             });
         }
         select.innerHTML = options;
     } catch (e) {
-        console.error("خطأ في تحميل المستخدمين للصلاحيات:", e);
+        console.error("خطأ في تحميل قائمة المشرفين:", e);
     }
 }
 
@@ -234,7 +440,7 @@ async function saveStorePermissions() {
             alert('حدث خطأ أثناء حفظ الصلاحيات.');
         }
     } catch (e) {
-        alert('تعذر الاتصال بالسيرفر لتحديث الصلاحيات.');
+        alert('تعذر الاتصال بالسيرفر.');
     }
 }
 </script>
